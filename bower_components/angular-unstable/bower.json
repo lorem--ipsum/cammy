@@ -1,0 +1,15 @@
+{
+  "name": "angular-unstable",
+  "version": "1.1.5",
+  "main": "./angular.js",
+  "dependencies": {},
+  "gitHead": "321da3ab109e2ffcc0dcae94eee14878ab6c119f",
+  "readme": "# AngularJS (unstable)\n\nBower package for the unstable branch of AngularJS. Current Version `1.1.5`.\n\n```sh\n$ bower install angular-unstable\n```",
+  "readmeFilename": "README.md",
+  "_id": "angular-unstable@1.1.5",
+  "description": "Bower package for the unstable branch of AngularJS. Current Version `1.1.5`.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/johannestroeger/bower-angular-unstable.git"
+  }
+}
