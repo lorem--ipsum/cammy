@@ -2,63 +2,69 @@ angular.module('cammy', [])
 
 .config(function config($routeProvider) {
   $routeProvider
-  .when( '/', {controller: 'MainCtrl', templateUrl: 'pages/main.html'})
+  .when('/', {controller: 'MainCtrl', templateUrl: 'pages/main.html'})
   .otherwise({redirectTo: '/'});
 })
 
-.controller('MainCtrl', function HomeController($scope) {
+.controller('MainCtrl', function HomeController($scope, $camera) {
   var oldX, oldY;
   $scope.rotate = function(event) {
     if ($scope.isRotating) {
-      $scope.camera.theta -= (oldX - event.clientX);
-      $scope.camera.phi -= (oldY - event.clientY);
+      $camera.delta(event.clientX - oldX, event.clientY - oldY);
     }
     
-    oldX = event.clientX;
-    oldY = event.clientY;
+    oldX = event.clientX, oldY = event.clientY;
   };
-  
-  var project = function(array) {
-    var phiRadian = $scope.camera.phi*Math.PI/180;
-    var thetaRadian = $scope.camera.theta*Math.PI/180;
-    
-    var ct = Math.cos(thetaRadian);
-    var sp = Math.sin(phiRadian);
-    var st = Math.sin(thetaRadian);
-    var pr = Math.cos(phiRadian);
-    
-    var a = ct*pr;
-    var b = st*pr;
-    
-    return array
-      .map(function(point, pointIndex) {
-        var x = point.x*20, y = point.y*20, z = point.z*20;
-        return {x: -x*st + y*ct, y: x*a + y*b - z*sp, color: point.color};
-      })
-      .map(function(point, index) {
-        return index%$scope.settings.accuracy === 0 ? point : null;
-      })
-      ;
-  };
-  
   
   d3.json('logo.json', function(error, data) {
     $scope.init_markers = data.points;
     $scope.lines = data.lines;
-    $scope.markers = project($scope.init_markers);
+    
+    update();
     $scope.$apply();    
   });
   
-  $scope.camera = {theta: -35, phi: -55};
-  $scope.settings = {accuracy: 1};
+  $scope.angles = $camera.angles();
   $scope.init_markers = [];
   $scope.lines = [];
   
-  var update = function() {$scope.markers = project($scope.init_markers);};
-  $scope.$watch('camera', update, true);
+  var update = function() {$scope.markers = $camera.project($scope.init_markers);};
+  
+  $scope.$watch('angles', update, true);
   $scope.$watch('settings', update, true);
 })
 
+.factory('$camera', function() {
+  var _angles = {theta: -35, phi: -55};
+  
+  return {
+    project: function(vertices) {
+      var phiRadian = _angles.phi*Math.PI/180;
+      var thetaRadian = _angles.theta*Math.PI/180;
+      
+      var ct = Math.cos(thetaRadian);
+      var sp = Math.sin(phiRadian);
+      var st = Math.sin(thetaRadian);
+      var pr = Math.cos(phiRadian);
+      
+      var a = ct*pr;
+      var b = st*pr;
+      
+      return vertices
+        .map(function(point, pointIndex) {
+          var x = point.x*20, y = point.y*20, z = point.z*20;
+          return {x: -x*st + y*ct, y: x*a + y*b - z*sp, color: point.color};
+        });
+    },
+    delta: function(deltaTheta, deltaPhi) {
+      _angles.theta += deltaTheta;
+      _angles.phi += deltaPhi;
+    },
+    angles: function() {
+      return _angles;
+    }
+  }
+})
 
 .directive('scene', function() {
   return {
@@ -68,19 +74,21 @@ angular.module('cammy', [])
     replace: true,
     link: function($scope, iElm, iAttrs, controller) {
       var clean = function() {
-        d3.select(iElm[0]).select('svg').remove();
+        g && g.selectAll('*').remove();
       };
+      
+      var g, x, y;
       
       var draw = function(points, lines) {
         var margin = {top: 0, right: 0, bottom: 0, left: 0}
          , width = 500 - margin.left - margin.right
          , height = 500 - margin.top - margin.bottom;
 
-        var x = d3.scale.linear()
+        x = d3.scale.linear()
          .domain([-10, 10])
          .range([ 0, width ]);
 
-        var y = d3.scale.linear()
+        y = d3.scale.linear()
          .domain([-10, 10])
          .range([ height, 0 ]);
         
@@ -97,8 +105,12 @@ angular.module('cammy', [])
          .attr('class', 'main');
 
 
-        var g = main.append("svg:g"); 
+        g = main.append("svg:g"); 
         
+        update(points, lines);
+      };
+      
+      var update = function(points, lines) {
         g.selectAll("lines")
           .data(lines.filter(function(d) {return !!points[d.from] && !!points[d.to];}))
           .enter().append("svg:line")
@@ -108,12 +120,14 @@ angular.module('cammy', [])
           .attr("y2", function (d) { return y(points[d.to].y); } )
           .style('stroke', function(d) {return d.color})
           ;
-      };
+        };
       
       $scope.$watch('markers', function() {
         clean();
-        if ($scope.markers) {
+        if (!g) {
           draw($scope.markers, $scope.lines);
+        } else {
+          update($scope.markers, $scope.lines);
         }
       }, true);
     }
