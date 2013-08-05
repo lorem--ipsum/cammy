@@ -6,7 +6,41 @@ angular.module('cammy', [])
   .otherwise({redirectTo: '/'});
 })
 
-.controller('MainCtrl', function HomeController($scope, $camera) {
+.factory('$box', function() {
+  return {
+    vertices: function() {
+      return [
+        {x: -0.5, y: 0.5, z: 0.5},
+        {x: -0.5, y: 0.5, z: -0.5},
+        {x: 0.5, y: 0.5, z: -0.5},
+        {x: 0.5, y: 0.5, z: 0.5},
+        
+        {x: 0.5, y: -0.5, z: 0.5},
+        {x: 0.5, y: -0.5, z: -0.5},
+        {x: 0.5, y: 0.5, z: -0.5},
+        
+      ];
+    },
+    lines: function() {
+      return [
+        {from: 0, to: 1, color: '#ff0000'},
+        {from: 1, to: 2, color: '#ff0000'},
+        {from: 2, to: 3, color: '#ff0000'},
+        {from: 3, to: 0, color: '#ff0000'},
+        
+        {from: 3, to: 4, color: '#000000'},
+        {from: 4, to: 5, color: '#000000'},
+        {from: 5, to: 6, color: '#000000'},
+      ];
+    }
+  }
+})
+
+.controller('MainCtrl', function HomeController($scope, $camera, $box) {
+  $scope.angles = $camera.angles();
+  $scope.vertices = [];
+  $scope.lines = [];
+  
   var oldX, oldY;
   $scope.rotate = function(event) {
     if ($scope.isRotating) {
@@ -17,21 +51,21 @@ angular.module('cammy', [])
   };
   
   d3.json('logo.json', function(error, data) {
-    $scope.init_markers = data.points;
-    $scope.lines = data.lines;
+    $scope.vertices.push(data.points);
+    $scope.lines.push(data.lines);
     
     update();
     $scope.$apply();    
   });
   
-  $scope.angles = $camera.angles();
-  $scope.init_markers = [];
-  $scope.lines = [];
   
-  var update = function() {$scope.markers = $camera.project($scope.init_markers);};
+  var update = function() {
+    $scope.markers = $scope.vertices && $scope.vertices.map(function(series) {
+      return $camera.project(series);
+    });
+  };
   
   $scope.$watch('angles', update, true);
-  $scope.$watch('settings', update, true);
 })
 
 .factory('$camera', function() {
@@ -66,69 +100,56 @@ angular.module('cammy', [])
   }
 })
 
-.directive('scene', function() {
+.directive('cammyCanvas', function() {
   return {
     restrict: 'E',
     scope: {markers: '=', lines: '='},
     template: '<div></div>',
     replace: true,
     link: function($scope, iElm, iAttrs, controller) {
-      var clean = function() {
-        g && g.selectAll('*').remove();
-      };
-      
       var g, x, y;
       
       var draw = function(points, lines) {
         var margin = {top: 0, right: 0, bottom: 0, left: 0}
-         , width = 500 - margin.left - margin.right
-         , height = 500 - margin.top - margin.bottom;
+         , width = 750 - margin.left - margin.right
+         , height = 750 - margin.top - margin.bottom;
 
         x = d3.scale.linear()
-         .domain([-10, 10])
+         .domain([-20, 20])
          .range([ 0, width ]);
 
         y = d3.scale.linear()
-         .domain([-10, 10])
+         .domain([-20, 20])
          .range([ height, 0 ]);
         
-        var chart = d3.select(iElm[0])
-         .append('svg:svg')
+        g = d3.select(iElm[0])
+         .append('canvas')
          .attr('width', width + margin.right + margin.left)
          .attr('height', height + margin.top + margin.bottom)
          .attr('class', 'chart')
-
-        var main = chart.append('g')
-         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-         .attr('width', width)
-         .attr('height', height)
-         .attr('class', 'main');
-
-
-        g = main.append("svg:g"); 
         
         update(points, lines);
       };
       
       var update = function(points, lines) {
-        g.selectAll("lines")
-          .data(lines.filter(function(d) {return !!points[d.from] && !!points[d.to];}))
-          .enter().append("svg:line")
-          .attr("x1", function (d) { return x(points[d.from].x); } )
-          .attr("y1", function (d) { return y(points[d.from].y); } )
-          .attr("x2", function (d) { return x(points[d.to].x); } )
-          .attr("y2", function (d) { return y(points[d.to].y); } )
-          .style('stroke', function(d) {return d.color})
-          ;
-        };
+        // This is weird.
+        var ctx = g[0][0].getContext('2d');
+        
+        ctx.clearRect(0, 0, 751, 751);
+        
+        lines.map(function(series, i) {
+          series.map(function(d) {
+            ctx.beginPath();
+            ctx.strokeStyle = d.color;
+            ctx.moveTo(x(points[i][d.from].x), y(points[i][d.from].y));
+            ctx.lineTo(x(points[i][d.to].x), y(points[i][d.to].y));
+            ctx.stroke();
+          });
+        });
+      };
       
       $scope.$watch('markers', function() {
-        clean();
-        if (!g) {
-          draw($scope.markers, $scope.lines);
-        } else {
-          update($scope.markers, $scope.lines);
-        }
+        (g && update || draw)($scope.markers, $scope.lines); 
       }, true);
     }
   }
