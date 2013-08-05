@@ -1,0 +1,2254 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"delt",
+				"deltaPhi"
+			],
+			[
+				"delta",
+				"deltaPhi"
+			],
+			[
+				"point",
+				"pointIndex"
+			],
+			[
+				"ng-m",
+				"ng-mousemove	AngularJS"
+			],
+			[
+				"ngmo",
+				"ng-mousedown	AngularJS"
+			],
+			[
+				"pro",
+				"projectVector"
+			],
+			[
+				"theta",
+				"thetaRadian"
+			],
+			[
+				"sce",
+				"ngDir_scene	AngularJS"
+			],
+			[
+				"too",
+				"toolbar"
+			],
+			[
+				"ngd",
+				"ngDir_toolbar	AngularJS"
+			],
+			[
+				"stroke",
+				"strokeWidth"
+			],
+			[
+				"str",
+				"stroke_width"
+			],
+			[
+				"st",
+				"strokeWidth"
+			],
+			[
+				"thi",
+				"this_fi"
+			],
+			[
+				"ret",
+				"returnedDate"
+			],
+			[
+				"hi",
+				"outfieldsToHide"
+			],
+			[
+				"hidden",
+				"hidden_out_fields"
+			],
+			[
+				"hid",
+				"hidden_out_fields"
+			],
+			[
+				"new",
+				"newColInfo"
+			],
+			[
+				"field",
+				"fieldToConsider"
+			],
+			[
+				"getCol",
+				"getColumnsInfo"
+			],
+			[
+				"getC",
+				"getColumnInfo"
+			],
+			[
+				"getVisi",
+				"getVisibleHAxes"
+			],
+			[
+				"_ondata",
+				"_onDataLoadingError"
+			],
+			[
+				"col",
+				"columns_info"
+			],
+			[
+				"_c",
+				"_clean"
+			],
+			[
+				"colum",
+				"columnInfos"
+			],
+			[
+				"__setY",
+				"__setYValueRange"
+			],
+			[
+				"upd",
+				"__updateButtons"
+			],
+			[
+				"get",
+				"getItem"
+			],
+			[
+				"data",
+				"dataSaved"
+			],
+			[
+				"__up",
+				"__updateFromCount"
+			],
+			[
+				"aar",
+				"alarmButton"
+			],
+			[
+				"Alarm",
+				"ex.ui.components.AlarmMenuButton"
+			],
+			[
+				"__prep",
+				"__prepareDownloadAST"
+			],
+			[
+				"set",
+				"setSyntaxTree"
+			],
+			[
+				"getData",
+				"getDataProvider"
+			],
+			[
+				"__getdu",
+				"__getDummyDataProvider"
+			],
+			[
+				"__getd",
+				"__getDummyFeatureInfo"
+			],
+			[
+				"__ge",
+				"__getDummyFeatureInfo"
+			],
+			[
+				"start_",
+				"start_ci"
+			],
+			[
+				"base",
+				"baseAtZero"
+			],
+			[
+				"getContext",
+				"getContextKey"
+			],
+			[
+				"var",
+				"variable"
+			],
+			[
+				"getCon",
+				"getContextKey"
+			],
+			[
+				"__data",
+				"__dataSourceGet"
+			],
+			[
+				"remove",
+				"removeListener"
+			],
+			[
+				"proper",
+				"propertyName"
+			],
+			[
+				"prop",
+				"propertyName"
+			],
+			[
+				"item",
+				"item_to_delete"
+			],
+			[
+				"handle",
+				"__handleSuccessfulPOST"
+			],
+			[
+				"in",
+				"__input"
+			],
+			[
+				"fu",
+				"foundType"
+			],
+			[
+				"setRe",
+				"setRequestHeader"
+			],
+			[
+				"map",
+				"mapOnChildren"
+			],
+			[
+				"getD",
+				"__getDummy"
+			],
+			[
+				"__create",
+				"__createButton"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"create",
+				"__createForm"
+			],
+			[
+				"LAyout",
+				"ex.test.LayoutUnitTest"
+			],
+			[
+				"up",
+				"uploadUrl"
+			],
+			[
+				"GetData",
+				"getDataSource"
+			],
+			[
+				"upl",
+				"upload_file"
+			],
+			[
+				"sr",
+				"sortFunction"
+			],
+			[
+				"list",
+				"listProvider"
+			],
+			[
+				"getch",
+				"getChildControl"
+			],
+			[
+				"__upd",
+				"__updateVisibleUsers"
+			],
+			[
+				"getd",
+				"getDownloadQuery"
+			],
+			[
+				"__prepa",
+				"__prepareQDownloadUrl"
+			],
+			[
+				"getDown",
+				"getDownloadMode"
+			],
+			[
+				"getDo",
+				"getDownloadQuery"
+			],
+			[
+				"quer",
+				"queryKeys"
+			],
+			[
+				"dow",
+				"downloadQuery"
+			],
+			[
+				"down",
+				"downloadQuery"
+			],
+			[
+				"download",
+				"download_query"
+			],
+			[
+				"for",
+				"forbidTo"
+			],
+			[
+				"fe",
+				"feature_sets"
+			],
+			[
+				"addList",
+				"addListenerOnce"
+			],
+			[
+				"__rem",
+				"__removeDynClauseFromTemplate"
+			],
+			[
+				"Layout",
+				"ex.test.LayoutUnitTest"
+			],
+			[
+				"Widget",
+				"WidgetManager"
+			],
+			[
+				"ui",
+				"undefined"
+			],
+			[
+				"Authenti",
+				"ex.managers.AuthenticationManager"
+			],
+			[
+				"u",
+				"us_1"
+			],
+			[
+				"Authen",
+				"ex.managers.AuthenticationManager"
+			],
+			[
+				"__",
+				"__credentials"
+			],
+			[
+				"save",
+				"__saveUser"
+			],
+			[
+				"ok",
+				"okString"
+			],
+			[
+				"__l",
+				"__flow"
+			],
+			[
+				"sync",
+				"syncColumnsOut"
+			],
+			[
+				"une",
+				"undefined"
+			],
+			[
+				"getSh",
+				"getShowRangeSelector"
+			],
+			[
+				"sort",
+				"sortIndex"
+			],
+			[
+				"getf",
+				"getFocusValue"
+			],
+			[
+				"_",
+				"_highlight"
+			],
+			[
+				"__get",
+				"__getIndexForField"
+			],
+			[
+				"getFocus",
+				"getFocusAtStartupKey"
+			],
+			[
+				"getFoc",
+				"getFocusAtStartupKey"
+			],
+			[
+				"getF",
+				"getFocusAtStartupKey"
+			],
+			[
+				"focus",
+				"focusAtStartupKey"
+			],
+			[
+				"fo",
+				"focusAtStartupKey"
+			],
+			[
+				"null",
+				"nullLabel"
+			],
+			[
+				"__is",
+				"__isAllSelectedModel"
+			],
+			[
+				"label",
+				"labelField"
+			],
+			[
+				"sele",
+				"selectedModel"
+			],
+			[
+				"value",
+				"valueField"
+			],
+			[
+				"column",
+				"columnmodel"
+			],
+			[
+				"columnsI",
+				"columnsInfos"
+			],
+			[
+				"__cre",
+				"__createTable"
+			],
+			[
+				"selct",
+				"selectboxDef"
+			],
+			[
+				"so",
+				"sortOn"
+			],
+			[
+				"feat",
+				"featureInfo"
+			],
+			[
+				"target",
+				"targetFeatureInfo"
+			],
+			[
+				"targ",
+				"targetFeatureInfo"
+			],
+			[
+				"sour",
+				"sourceFeatureInfo"
+			],
+			[
+				"be",
+				"behavior"
+			],
+			[
+				"expo",
+				"ExplorationFeatureInfo"
+			],
+			[
+				"open",
+				"openStub"
+			],
+			[
+				"explore",
+				"exploreTable"
+			],
+			[
+				"explre",
+				"exploreTable"
+			],
+			[
+				"tab",
+				"tableSpy"
+			],
+			[
+				"se",
+				"searchLabel"
+			],
+			[
+				"pan",
+				"panelStub"
+			],
+			[
+				"getI",
+				"getIgnoreFalseDisplay"
+			],
+			[
+				"ign",
+				"ignore_false_display"
+			],
+			[
+				"ignore",
+				"ignore_false_display"
+			],
+			[
+				"foo",
+				"foo_feature"
+			],
+			[
+				"featre",
+				"featureInfo"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "cammy.js",
+			"settings":
+			{
+				"buffer_size": 4996,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1268,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.css",
+			"settings":
+			{
+				"buffer_size": 206,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 52.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"livere",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"enabe",
+				"Package Control: Enable Package"
+			],
+			[
+				"emove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"wo",
+				"Word Wrap: Toggle"
+			],
+			[
+				"index",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"enab",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"packe",
+				"Package Control: List Packages"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"",
+				"AngularJS: Look Up Definition"
+			],
+			[
+				"createt",
+				"Create test class"
+			],
+			[
+				"insert",
+				"Insert line number"
+			],
+			[
+				"pre",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"upp",
+				"Convert Case: Upper Case"
+			],
+			[
+				"prett",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"pret",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"qoo",
+				"Snippet: QooxdooClass"
+			],
+			[
+				"p",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"qoox",
+				"Snippet: QooxdooClass"
+			],
+			[
+				"qo",
+				"Snippet: QooxdooClass"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"line",
+				"Insert line number"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"Qoo",
+				"Snippet: QooxdooClass"
+			],
+			[
+				"Prett",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"uppr",
+				"Convert Case: Upper Case"
+			],
+			[
+				"prettyr",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"linen",
+				"Insert line number"
+			],
+			[
+				"case",
+				"Convert Case: camelCase"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"insert	",
+				"Insert line number"
+			],
+			[
+				"qooxdoo",
+				"Set Syntax: Qooxdoo"
+			],
+			[
+				"rett",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"table",
+				"Table Editor: Set table syntax 'MultiMarkdown' for current view"
+			],
+			[
+				"tableed",
+				"Table Editor: Set table syntax 'Textile' for current view"
+			],
+			[
+				"tabe",
+				"Table Editor: Enable for current view"
+			],
+			[
+				"table edi",
+				"Table Editor: Set table syntax 'Pandoc' for current view"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"Lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"Upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"jso",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"colo",
+				"Color picker"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"minima",
+				"View: Toggle Minimap"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"sideb",
+				"View: Toggle Side Bar"
+			],
+			[
+				"Insert",
+				"Insert line number"
+			],
+			[
+				"inse",
+				"Insert line number"
+			],
+			[
+				"book",
+				"Bookmarks: Clear All"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"clor",
+				"Color picker"
+			],
+			[
+				"minimap",
+				"View: Toggle Minimap"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"tes",
+				"Create test class"
+			],
+			[
+				"test",
+				"Create test class"
+			],
+			[
+				"q",
+				"Set Syntax: Qooxdoo"
+			],
+			[
+				"us",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"git",
+				"Git: Change Branch"
+			],
+			[
+				"git sh",
+				"Git: Show Current File"
+			],
+			[
+				"snipp",
+				"Snippet: QooxdooClass"
+			],
+			[
+				"insertl",
+				"Insert line number"
+			],
+			[
+				"dif",
+				"Git: Diff Tool"
+			],
+			[
+				"clear",
+				"Bookmarks: Clear All"
+			],
+			[
+				"boo",
+				"Bookmarks: Toggle"
+			],
+			[
+				"minma",
+				"View: Toggle Minimap"
+			],
+			[
+				"qooxo",
+				"Set Syntax: Qooxdoo"
+			],
+			[
+				"sideba",
+				"View: Toggle Side Bar"
+			],
+			[
+				"linting",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"disable lin",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"lin",
+				"SublimeLinter: Reset"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint Current File"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"show",
+				"SublimeLinter: Show Error List"
+			],
+			[
+				"linit",
+				"SublimeLinter: Lint Current File"
+			],
+			[
+				"linitn",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"linter",
+				"Closure Linter: Run Closure Linter"
+			],
+			[
+				"removep",
+				"Package Control: Remove Package"
+			],
+			[
+				"lintin",
+				"SublimeLinter: Lint Current File"
+			],
+			[
+				"disable lint",
+				"SublimeLinter: Disable Linting"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"lint cu",
+				"SublimeLinter: Lint Current File"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"line nu",
+				"Insert line number"
+			],
+			[
+				"toglesi",
+				"View: Toggle Side Bar"
+			],
+			[
+				"bo",
+				"Bookmarks: Clear All"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"ttry",
+				"Snippet: ttry"
+			],
+			[
+				"packages",
+				"Package Control: Discover Packages"
+			],
+			[
+				"ttr",
+				"Snippet: ttry"
+			],
+			[
+				"uppe",
+				"Convert Case: Upper Case"
+			],
+			[
+				"moin",
+				"Set Syntax: MoinMoin"
+			],
+			[
+				"diso",
+				"Package Control: Discover Packages"
+			],
+			[
+				"toggl",
+				"Word Wrap: Toggle"
+			],
+			[
+				"lowe",
+				"Convert Case: Lower Case"
+			],
+			[
+				"discover",
+				"Package Control: Discover Packages"
+			],
+			[
+				"configure",
+				"Configure eFlex project"
+			],
+			[
+				"edit",
+				"Edit eFlex project"
+			],
+			[
+				"config",
+				"Configure eFlex project"
+			],
+			[
+				"confi",
+				"Configure eFlex project"
+			],
+			[
+				"action",
+				"Set Syntax: ActionScript"
+			],
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reidne",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"mxml",
+				"Set Syntax: MXML"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"co",
+				"Configure eFlex project"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 372.0,
+		"history":
+		[
+			"view.run_command('create_test')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/zub/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/zub/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/zub/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/zub/dev/perso/cammy/cammy.sublime-project",
+		"/home/zub/dev/perso/cammy/cammy.js",
+		"/home/zub/dev/perso/cammy/README.md",
+		"/home/zub/dev/perso/cammy/src/index.html",
+		"/home/zub/dev/perso/cammy/src/app.css",
+		"/home/zub/dev/perso/cammy/src/cammy.js",
+		"/home/zub/dev/perso/cammy/src/pages/main.html",
+		"/home/zub/dev/perso/cammy/src/logo.json",
+		"/home/zub/Desktop/logo.json",
+		"/home/zub/.config/sublime-text-3/Packages/LiveReload/LiveReload.sublime-settings",
+		"/home/zub/dev/perso/cammy/src/app.js",
+		"/home/zub/dev/perso/cammy/package.json",
+		"/home/zub/dev/perso/cammy/karma-unit-continuous.js",
+		"/home/zub/dev/perso/cammy/karma-unit-coverage.js",
+		"/home/zub/dev/perso/cammy/index.html",
+		"/home/zub/dev/perso/cammy/lib/cammy.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/form/AutoForm.js",
+		"/tmp/history",
+		"/home/zub/dev/pure-project/rec-alert/rec-alert/src/assets/toolbar/toolbar.js",
+		"/home/zub/dev/pure-project/rec-alert/rec-alert/Gruntfile.js",
+		"/home/zub/dev/pure-project/rec-alert/rec-alert.sublime-project",
+		"/home/zub/.config/sublime-text-3/Packages/User/AngularJS-sublime-package.sublime-settings",
+		"/home/zub/.config/sublime-text-3/Packages/User/AngularJS-completions.sublime-settings",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/Behavior.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/Behavior.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/BrowseButton.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/AbstractModule.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/DataSource.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/core/DataLoader.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/core/DataProvider.js",
+		"/home/zub/Downloads/Radio_TRX_Overview.tap",
+		"/home/zub/dev/q-shell/quartz-gui/share/another_scenarios_wrapper.sh",
+		"/home/zub/dev/q-shell/quartz-gui/share/scenarios_wrapper.sh",
+		"/home/zub/dev/q-shell/quartz-gui/share/deploy_tap.pl",
+		"/home/zub/dev/q-shell/taps/output.tap",
+		"/home/zub/dev/q-shell/quartz-gui/share/scenario.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/Scenario.js",
+		"/home/zub/dev/q-shell/output.tap",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/BehaviorConstraint.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/managers/BehaviorManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/BehaviorConstraint.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/BehaviorManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/Scenario.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/ScenarioManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/share/scenarios.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/managers/ScenarioManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/share/scenarios_count.js",
+		"/home/zub/dev/q-shell/quartz-gui/config.json",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/conditions/Tools.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/conditions/Abstract.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/ObjectUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/utils/ObjectUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/conditions/Item.js",
+		"/home/zub/Downloads/output.tsv",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/Table.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/FeatureManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/MenuEntry.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/DataSource.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/MenuEntry.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/Map.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/resource/lib/openlayers/source/class/qxol/Map.js",
+		"/home/zub/Downloads/vmap0",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/ModuleMenuController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/utils/DateUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/DateUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/GraphController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/graph/Series.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/modules/Graph.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/GraphController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/graph/Series.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/Graph.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/SelecterController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/GridController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/components/ModuleMenuController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/AbstractController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/WhereEditorController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/FeatureInfo.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/AbstractController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/WhereEditorController.js",
+		"/home/zub/dev/q-shell/empkg.conf",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/Widget.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/layout/FlexLayout.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/MMovableModule.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/layout/SideBarLayout.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/form/items/DateField.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/DateTimePicker.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/form/items/DateField.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/components/DateTimePicker.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/ConditionsEditorController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/ConditionsEditor.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/controller/ConditionsEditorController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/utils/DYUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/DYUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/graph/Zone.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/WhereEditor.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/graph/Zone.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/Table.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/graph/Element.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/graph/Element.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/form/items/JsonField.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/StringUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/Grid.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/form/items/JsonField.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/graph/Axis.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/NotificationManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/components/Notification.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/modules/ConditionsEditor.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/managers/TableManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/GridController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/TableManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/RESTManager.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/ColumnInfo.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/CodeEditor.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/EDSQLUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/CodeEditorController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/model/graph/Axis.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/utils/LayoutUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/graph/EventSeries.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/utils/LayoutUtil.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/modules/AbstractModule.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/ui/modules/DashLine.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/model/DashLineEntry.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/controller/DashLineController.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test/ui/components/LogicalForm.js",
+		"/home/zub/dev/q-shell/quartz-gui/source/class/ex/managers/ResourceManager.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/home/zub/dev/q-shell/quartz-gui",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui/build",
+			"/home/zub/dev/q-shell/quartz-gui/source",
+			"/home/zub/dev/q-shell/quartz-gui/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui",
+			"/home/zub/dev/q-eds/EDS",
+			"/home/zub/dev/q-shell/quartz-gui/source/",
+			"/home/zub/dev/q-shell/quartz-gui/source",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test",
+			"/home/zub/dev/q-eds/EDS",
+			"/home/zub/dev/q-shell/quartz-gui/source/class",
+			"/home/zub/dev/q-shell/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class",
+			"/home/zub/dev/q-shell/quartz-gui/source",
+			"/home/zub/dev/q-shell",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/test",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex/base/controller",
+			"/home/zub/dev/q-shell/quartz-gui/source",
+			"/home/zub/dev/q-shell/",
+			"/home/zub/dev/q-shell/quartz-gui/source",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui/",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"/home/zub/dev/q-shell/quartz-gui/",
+			"/home/zub/dev/q-shell/quartz-gui/source/resource",
+			"",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"",
+			"/home/zub/dev/q-shell/quartz-gui/source/class/ex",
+			"",
+			"/home/expand/mounted/SHELL/quartz-gui/source/class/ex",
+			"/home/expand/mounted/SHELL/quartz-gui/source/class/ex/ui",
+			"",
+			"/home/expand/mounted/SHELL/quartz-gui/source/class/ex",
+			"",
+			"/home/expand/Desktop/SHELL/source/class/ex",
+			"",
+			"/home/expand/dev/qshell--trunk/source/class",
+			"/home/expand/dev/qshell--trunk/source/class/ex/ui/form/items",
+			"/home/expand/dev/qshell--trunk/source/",
+			"/home/expand/dev/qshell--trunk/source/class/ex",
+			"",
+			"/home/expand/dev/qshell--trunk/source/",
+			"/home/expand/dev/qshell--trunk/source/class/ex",
+			"",
+			"-*dy*.txt",
+			"",
+			"/home/expand/dev/shell/source/class",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"canvas",
+			"lower",
+			" , ",
+			"0x(\\w{6})",
+			"10",
+			"st*sp",
+			"ct*sp",
+			"Math.cos(phiRadian)",
+			"Math.sin(thetaRadian)",
+			"Math.sin(phiRadian)",
+			"Math.cos(thetaRadian)",
+			"$scope.markers",
+			"2",
+			"10",
+			"a[2]",
+			"a[1]",
+			"a[0]",
+			"http",
+			"event",
+			"{\n",
+			"event",
+			"changeName",
+			"__onFileRead",
+			"constr",
+			"qxweb",
+			"bulkImport",
+			"copy",
+			"open_in_new",
+			"UTC",
+			"\"position\": {",
+			"widgetma",
+			"UTC",
+			"utc",
+			"UTC",
+			"utc",
+			"UTC",
+			"utc",
+			"UTC",
+			".setUTC",
+			".getUTC",
+			"value.set",
+			" ",
+			"' => '",
+			",[",
+			"check",
+			"canBeDisplayed",
+			"__onDataReady",
+			"\\bs.getColumnInfo",
+			"s.getColumnInfo",
+			"prettyPrintn",
+			"formatJson",
+			"_getDefaultMessage",
+			"__handleSuccessful",
+			"__handleSuccessfulGET",
+			"Status",
+			"status",
+			"Status",
+			"status",
+			"Status",
+			"status",
+			"xdr",
+			"testtab",
+			"getQuery",
+			"autoDispose",
+			"ColumnsInfo",
+			"sort",
+			"125",
+			"120",
+			"changed",
+			"top_bar",
+			"setTemporaryHiddenColumns",
+			"_applyDataSource",
+			"_create",
+			"__createItems",
+			"/**\n         * @inheritDoc\n         */",
+			"header",
+			"401",
+			"setco",
+			"values\":\\s\\[[^]]+",
+			"values\":\\s\\[[^]*]",
+			"values\":\\s\\[[^]+]",
+			"values\":\\s\\[[^]]",
+			"__onFileRead",
+			"button-hover",
+			"button-css",
+			"menubar",
+			"css",
+			"start",
+			"\"button\"",
+			"decorator",
+			"aristo",
+			"button",
+			"toolbar-bt",
+			"button",
+			"getVis",
+			"{",
+			"group",
+			"\\\"",
+			"setValueFromString",
+			"__prepareDownloadAST",
+			"__prepareDownload",
+			"Wri",
+			"write",
+			"changedWriteable",
+			"_updateToolbar",
+			"controller.getHiddenColumns().length",
+			"\":",
+			"__contextView",
+			"__onDataLoaded",
+			"__item",
+			"stack",
+			"\":",
+			"__disposeOldArray",
+			"__updateFiltersMenu",
+			"__getBehaviorsMenu",
+			"__moduleHasBehaviors",
+			"__applyBehaviors",
+			"__postReload",
+			"__askIfUserCan",
+			"crud",
+			"__getCSS",
+			"request.getResponse()",
+			"__onDataLoaded",
+			"getIndexForField",
+			"__item",
+			"POST",
+			"Post",
+			"POST"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\"#\\1\"",
+			"\"",
+			"\\n",
+			"",
+			":",
+			"canSeeInternalFeatures",
+			"MSC5001",
+			"BSC530",
+			"BTSs of BSC 530",
+			"",
+			"not_null",
+			"",
+			"(",
+			"",
+			"ex.model.graph.\\1",
+			"\\\"",
+			" \\\"",
+			" ",
+			"\"columns_infos\": [...]",
+			"",
+			"this.__configuration",
+			"\"",
+			"model.monkey.",
+			"\\1featureInfo",
+			"ex.\\1model.",
+			"ex.\\1model",
+			"ex.test.core.\\1",
+			"ex.core.\\1",
+			"Info",
+			"ex.test.controller.\\1Controller",
+			"ex.controller.\\1Controller",
+			"FeatureZnfo",
+			"ColumnZnfo",
+			"ex.test.managers.",
+			"ex.managers.",
+			"ex.core.DataProvider",
+			"ex.core.DataLoader",
+			"ex.controller",
+			"\\1\\2",
+			"Widget",
+			";",
+			",\\n",
+			"ex.utils.Md5.",
+			"ex.utils.Md5.MD5.",
+			"|\\1|",
+			"~\\1~",
+			"#\\1#",
+			"\\1",
+			"\\'",
+			"\\ ",
+			"",
+			"ex.utils.ArrayUtil.filter(",
+			"",
+			"__onOkPressed",
+			"",
+			"ex.utils.DateUtil.xPad",
+			"",
+			"\\1:",
+			"dy",
+			":",
+			"\\1Integer\\2",
+			"__credentials",
+			"OK",
+			"[OK]",
+			"_",
+			"\\1;\\1;",
+			"/zub/",
+			"",
+			"\\1",
+			"\\\"",
+			"\\1",
+			"         *",
+			"\\1\\\\\"",
+			"\\1\\\"",
+			"\\1\\",
+			"\"",
+			" ",
+			"\\r",
+			"\\n",
+			"\\1: \\2",
+			"@",
+			": ",
+			" : ",
+			"Sébastien Fragnaud",
+			"_getFocus",
+			"$1$2",
+			"_toolbar",
+			"__HueToRgb",
+			"",
+			"\\1: function\\2 {",
+			"\"\\1\", ",
+			"_",
+			"removeOverlayMessage",
+			"setOverlayMessage",
+			"throw new Error(\\1);",
+			"throw new Error(\"\\1\");",
+			"qx.Class.define(\"ex.ui.components.fuzzy.Renderer\", {\nextend: qx.ui.core.Widget,\n\nproperties: {\ntitle: {\napply: \"_applyTitle\",\ninit: \"\"\n},\n\nmodel: {\nnullable: true,\napply: \"_applyModel\"\n}\n},\n\nconstruct: function() {\nthis.base(arguments);\nthis._setLayout(new qx.ui.layout.VBox());\n\nthis.__label = new qx.ui.basic.Label();\nthis._add(this.__label);\n\nthis.__tags = new qx.ui.container.Composite(new qx.ui.layout.HBox());\nthis._add(this.__tags);\n},\n\nmembers: {\n\n_forwardStates :\n{\nfocused : true,\nhovered : true\n},\n\n_applyTitle: function(value) {\nthis.__label.setValue(value);\n},\n\n_applyTags: function(value) {\n\n},\n\n_applyModel: function(value) {\n\n}\n}\n});",
+			"Abstract",
+			"$1:",
+			"$1",
+			"this.__children",
+			"",
+			"$1 :",
+			":",
+			"ex",
+			"shell",
+			"%20",
+			"=",
+			"&",
+			"",
+			"com.expand.gui.shell.graph",
+			"    $1",
+			"",
+			"fireError(this + \"::\" +",
+			"fireError(",
+			"throwError(",
+			"rebuildTags",
+			"$2,\\n    $1",
+			"\\n},",
+			"\\n    $1",
+			"\\n{\\n    ",
+			"\\n{",
+			"\\]\\n    \\]",
+			"\\n        $1",
+			"$2,\\n    $1",
+			"\\n    $1",
+			"\\n},",
+			"\\n{\\n    $1:"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "cammy.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2657,
+								2657
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 824.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								735,
+								735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 27.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "cammy.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"monkey",
+				"source/class/ex/ui/modules/Monkey.js"
+			],
+			[
+				"autofo",
+				"source/class/ex/ui/form/AutoForm.js"
+			],
+			[
+				"main.ht",
+				"rec-alert/src/pages/main.html"
+			],
+			[
+				"app.",
+				"rec-alert/src/app.js"
+			],
+			[
+				"beh",
+				"source/class/ex/model/Behavior.js"
+			],
+			[
+				"datpro",
+				"class/ex/core/DataProvider.js"
+			],
+			[
+				"dataloa",
+				"class/ex/core/DataLoader.js"
+			],
+			[
+				"dataso",
+				"class/ex/model/DataSource.js"
+			],
+			[
+				"abstractmodu",
+				"class/ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"browsebutt",
+				"class/ex/ui/components/BrowseButton.js"
+			],
+			[
+				"scenario",
+				"class/ex/model/Scenario.js"
+			],
+			[
+				"behaviormanager",
+				"class/ex/managers/BehaviorManager.js"
+			],
+			[
+				"constrain",
+				"class/ex/model/BehaviorConstraint.js"
+			],
+			[
+				"scenarioma",
+				"class/ex/managers/ScenarioManager.js"
+			],
+			[
+				"sce",
+				"class/ex/managers/ScenarioManager.js"
+			],
+			[
+				"objet",
+				"class/ex/utils/ObjectUtil.js"
+			],
+			[
+				"abstract",
+				"class/ex/ui/components/conditions/Abstract.js"
+			],
+			[
+				"tools",
+				"class/ex/ui/components/conditions/Tools.js"
+			],
+			[
+				"condition",
+				"class/ex/ui/components/conditions/Item.js"
+			],
+			[
+				"browsebutton",
+				"ex/ui/components/BrowseButton.js"
+			],
+			[
+				"dataloader",
+				"ex/core/DataLoader.js"
+			],
+			[
+				"browseb",
+				"ex/ui/components/BrowseButton.js"
+			],
+			[
+				"abstracmod",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"featuremanager",
+				"ex/managers/FeatureManager.js"
+			],
+			[
+				"table",
+				"ex/model/Table.js"
+			],
+			[
+				"datasource",
+				"ex/model/DataSource.js"
+			],
+			[
+				"map.js",
+				"ex/ui/modules/Map.js"
+			],
+			[
+				"menuentr",
+				"ex/model/MenuEntry.js"
+			],
+			[
+				"behavior",
+				"ex/test/managers/BehaviorManager.js"
+			],
+			[
+				"abstracmodule",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"mo",
+				"ex/ui/components/ModuleMenuController.js"
+			],
+			[
+				"date",
+				"ex/utils/DateUtil.js"
+			],
+			[
+				"dateut",
+				"ex/utils/DateUtil.js"
+			],
+			[
+				"gra",
+				"ex/ui/modules/Graph.js"
+			],
+			[
+				"series",
+				"ex/model/graph/Series.js"
+			],
+			[
+				"grahcont",
+				"ex/controller/GraphController.js"
+			],
+			[
+				"abstractmod",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"selecter",
+				"ex/test/controller/SelecterController.js"
+			],
+			[
+				"graphcot",
+				"ex/test/controller/GraphController.js"
+			],
+			[
+				"gridco",
+				"ex/test/controller/GridController.js"
+			],
+			[
+				"where",
+				"ex/controller/WhereEditorController.js"
+			],
+			[
+				"abstractcontroller",
+				"ex/controller/AbstractController.js"
+			],
+			[
+				"featurema",
+				"ex/managers/FeatureManager.js"
+			],
+			[
+				"featureinfo",
+				"ex/model/FeatureInfo.js"
+			],
+			[
+				"modulemenu",
+				"ex/ui/components/ModuleMenuController.js"
+			],
+			[
+				"sidebar",
+				"ex/ui/layout/SideBarLayout.js"
+			],
+			[
+				"mmov",
+				"ex/ui/modules/MMovableModule.js"
+			],
+			[
+				"flexla",
+				"ex/ui/layout/FlexLayout.js"
+			],
+			[
+				"widget",
+				"ex/ui/Widget.js"
+			],
+			[
+				"datef",
+				"ex/ui/form/items/DateField.js"
+			],
+			[
+				"datefi",
+				"ex/ui/form/items/DateField.js"
+			],
+			[
+				"datetim",
+				"ex/ui/components/DateTimePicker.js"
+			],
+			[
+				"dateu",
+				"ex/utils/DateUtil.js"
+			],
+			[
+				"conditios",
+				"ex/controller/ConditionsEditorController.js"
+			],
+			[
+				"conditions",
+				"ex/ui/modules/ConditionsEditor.js"
+			],
+			[
+				"zone",
+				"ex/model/graph/Zone.js"
+			],
+			[
+				"dyu",
+				"ex/utils/DYUtil.js"
+			],
+			[
+				"graphcontroller",
+				"ex/controller/GraphController.js"
+			],
+			[
+				"graph",
+				"ex/ui/modules/Graph.js"
+			],
+			[
+				"element",
+				"ex/model/graph/Element.js"
+			],
+			[
+				"grap",
+				"ex/ui/modules/Graph.js"
+			],
+			[
+				"ele",
+				"ex/model/graph/Element.js"
+			],
+			[
+				"graphser",
+				"ex/model/graph/Series.js"
+			],
+			[
+				"graphco",
+				"ex/controller/GraphController.js"
+			],
+			[
+				"graph.js",
+				"ex/ui/modules/Graph.js"
+			],
+			[
+				"datt",
+				"ex/ui/components/DateTimePicker.js"
+			],
+			[
+				"jsonfield",
+				"ex/ui/form/items/JsonField.js"
+			],
+			[
+				"stringut",
+				"ex/utils/StringUtil.js"
+			],
+			[
+				"grid.js",
+				"ex/ui/modules/Grid.js"
+			],
+			[
+				"jsonfiel",
+				"ex/ui/form/items/JsonField.js"
+			],
+			[
+				"axi",
+				"ex/model/graph/Axis.js"
+			],
+			[
+				"graph.",
+				"ex/ui/modules/Graph.js"
+			],
+			[
+				"noti",
+				"ex/ui/components/Notification.js"
+			],
+			[
+				"datasour",
+				"ex/model/DataSource.js"
+			],
+			[
+				"conditione",
+				"ex/controller/ConditionsEditorController.js"
+			],
+			[
+				"conditionseditor",
+				"ex/ui/modules/ConditionsEditor.js"
+			],
+			[
+				"restma",
+				"ex/managers/RESTManager.js"
+			],
+			[
+				"tablemana",
+				"ex/managers/TableManager.js"
+			],
+			[
+				"graphcont",
+				"ex/controller/GraphController.js"
+			],
+			[
+				"columni",
+				"ex/model/ColumnInfo.js"
+			],
+			[
+				"edsqlut",
+				"ex/utils/EDSQLUtil.js"
+			],
+			[
+				"column",
+				"ex/model/ColumnInfo.js"
+			],
+			[
+				"codee",
+				"ex/ui/modules/CodeEditor.js"
+			],
+			[
+				"codedi",
+				"ex/controller/CodeEditorController.js"
+			],
+			[
+				"conditionsedi",
+				"ex/ui/modules/ConditionsEditor.js"
+			],
+			[
+				"conditionsed",
+				"ex/controller/ConditionsEditorController.js"
+			],
+			[
+				"axis",
+				"ex/model/graph/Axis.js"
+			],
+			[
+				"abstractco",
+				"ex/controller/AbstractController.js"
+			],
+			[
+				"abstractmodule",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"elem",
+				"ex/model/graph/Element.js"
+			],
+			[
+				"eve",
+				"ex/model/graph/EventSeries.js"
+			],
+			[
+				"json",
+				"ex/ui/form/items/JsonField.js"
+			],
+			[
+				"layoutu",
+				"ex/utils/LayoutUtil.js"
+			],
+			[
+				"layout",
+				"ex/utils/LayoutUtil.js"
+			],
+			[
+				"featurein",
+				"ex/model/FeatureInfo.js"
+			],
+			[
+				"mod",
+				"ex/ui/components/ModuleMenuController.js"
+			],
+			[
+				"abstracmo",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"dahs",
+				"ex/controller/DashLineController.js"
+			],
+			[
+				"gridcontr",
+				"ex/controller/GridController.js"
+			],
+			[
+				"dashlineen",
+				"ex/model/DashLineEntry.js"
+			],
+			[
+				"dashlineco",
+				"ex/controller/DashLineController.js"
+			],
+			[
+				"dashl",
+				"ex/ui/modules/DashLine.js"
+			],
+			[
+				"behaviorman",
+				"ex/test/managers/BehaviorManager.js"
+			],
+			[
+				"logicalform",
+				"ex/ui/components/LogicalForm.js"
+			],
+			[
+				"codeed",
+				"ex/ui/modules/CodeEditor.js"
+			],
+			[
+				"datasoure",
+				"ex/model/DataSource.js"
+			],
+			[
+				"flexlay",
+				"ex/ui/layout/FlexLayout.js"
+			],
+			[
+				"abstractm",
+				"ex/ui/modules/AbstractModule.js"
+			],
+			[
+				"dataprovider",
+				"ex/core/DataProvider.js"
+			],
+			[
+				"abstractc",
+				"ex/controller/AbstractController.js"
+			],
+			[
+				"grid",
+				"ex/ui/modules/Grid.js"
+			],
+			[
+				"selecter.js",
+				"ex/ui/modules/Selecter.js"
+			],
+			[
+				"calltrace",
+				"ex/ui/modules/Calltrace.js"
+			],
+			[
+				"resour",
+				"ex/managers/ResourceManager.js"
+			],
+			[
+				"calltraceco",
+				"ex/controller/CalltraceController.js"
+			],
+			[
+				"logical",
+				"ex/ui/components/LogicalForm.js"
+			],
+			[
+				"md5",
+				"ex/utils/Md5.js"
+			],
+			[
+				"stringuti",
+				"ex/utils/StringUtil.js"
+			],
+			[
+				"authen",
+				"ex/utils/AuthenticationUtil.js"
+			],
+			[
+				"authenti",
+				"ex/managers/AuthenticationManager.js"
+			],
+			[
+				"rest",
+				"ex/managers/RESTManager.js"
+			],
+			[
+				"typema",
+				"ex/managers/TypeManager.js"
+			],
+			[
+				"type",
+				"ex/model/Type.js"
+			],
+			[
+				"formutil",
+				"ex/utils/FormUtil.js"
+			],
+			[
+				"modu",
+				"ex/ui/components/ModuleMenuController.js"
+			],
+			[
+				"import",
+				"ex/ui/components/BrowseButton.js"
+			],
+			[
+				"map",
+				"ex/ui/modules/Map.js"
+			],
+			[
+				"icon",
+				"ex/utils/IconsUtil.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/dev/pure-project/pure_template/pure-template.sublime-project"
+			],
+			[
+				"pure",
+				"/home/zub/dev/sublime-projects/pure.sublime-project"
+			],
+			[
+				"plugi",
+				"/home/expand/.config/sublime-text-2/Packages/User/plugins.sublime-project"
+			],
+			[
+				"upper",
+				"/home/expand/.config/sublime-text-2/Packages/User/plugins.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 92.0,
+		"selected_items":
+		[
+		],
+		"width": 656.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 372.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

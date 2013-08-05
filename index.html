@@ -8,15 +8,15 @@
 </head>
 <body ng-controller="MainCtrl">
   <div class='units-row content'>
-  <div class='unit-100'><h1>Cammy<small> {{markers.length}} vertices, {{lines.length}} lines</small></h1></div>
-  <div ng-mousedown="isRotating=true" ng-mouseup="isRotating=false" ng-mousemove="rotate($event)" class='unit-100'>
-    <scene markers='markers' lines='lines'></scene>
+    <div class='unit-100'><h1>Cammy<small> {{markers[0].length}} vertices, {{lines[0].length}} lines</small></h1></div>
+    <div ng-mousedown="isRotating=true" ng-mouseup="isRotating=false" ng-mousemove="rotate($event)" class='unit-100'>
+      <cammy-canvas markers='markers' lines='lines'></cammy-canvas>
+    </div>
+    <div class='unit-100'>
+      <span class='label label-blue'>&theta; {{angles.theta}}&deg;</span>
+      <span class='label label-blue'>&phi; {{angles.phi}}&deg;</span>
+    </div>
   </div>
-  <div class='unit-100 text-right'>
-    <span class='label label-blue'>&theta; {{camera.theta}}&deg;</span>
-    <span class='label label-blue'>&phi; {{camera.phi}}&deg;</span>
-  </div>
-</div>
 </body>
 <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-unstable/angular.min.js"></script>
