@@ -6,37 +6,7 @@ angular.module('cammy', [])
   .otherwise({redirectTo: '/'});
 })
 
-.factory('$box', function() {
-  return {
-    vertices: function() {
-      return [
-        {x: -0.5, y: 0.5, z: 0.5},
-        {x: -0.5, y: 0.5, z: -0.5},
-        {x: 0.5, y: 0.5, z: -0.5},
-        {x: 0.5, y: 0.5, z: 0.5},
-        
-        {x: 0.5, y: -0.5, z: 0.5},
-        {x: 0.5, y: -0.5, z: -0.5},
-        {x: 0.5, y: 0.5, z: -0.5},
-        
-      ];
-    },
-    lines: function() {
-      return [
-        {from: 0, to: 1, color: '#ff0000'},
-        {from: 1, to: 2, color: '#ff0000'},
-        {from: 2, to: 3, color: '#ff0000'},
-        {from: 3, to: 0, color: '#ff0000'},
-        
-        {from: 3, to: 4, color: '#000000'},
-        {from: 4, to: 5, color: '#000000'},
-        {from: 5, to: 6, color: '#000000'},
-      ];
-    }
-  }
-})
-
-.controller('MainCtrl', function HomeController($scope, $camera, $box) {
+.controller('MainCtrl', function HomeController($scope, $camera, $axis) {
   $scope.angles = $camera.angles();
   $scope.vertices = [];
   $scope.lines = [];
@@ -51,25 +21,98 @@ angular.module('cammy', [])
   };
   
   d3.json('logo.json', function(error, data) {
-    $scope.vertices.push(data.points);
-    $scope.lines.push(data.lines);
+    $scope.logo = data;
     
     update();
     $scope.$apply();    
   });
   
-  
   var update = function() {
-    $scope.markers = $scope.vertices && $scope.vertices.map(function(series) {
+    var t = $scope.angles.theta;
+    var p = $scope.angles.phi;
+    
+    $scope.markers = [
+      $axis.xy(p).vertices, $axis.yz(t).vertices, $axis.zx(t).vertices,
+      $scope.logo.points
+    ].map(function(series) {
       return $camera.project(series);
     });
+    
+    $scope.lines = [
+      $axis.xy(p).lines, $axis.yz(t).lines, $axis.zx(t).lines,
+      $scope.logo.lines
+    ];
   };
   
   $scope.$watch('angles', update, true);
 })
 
+.factory('$axis', function() {
+  return {
+    xScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
+    yScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
+    zScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
+    
+    
+    //TONEVERDO: Add pseudo memoization for that
+    xy: function(phi) {
+      var pts = [], lines = [];
+      
+      var z = (phi > 90) ? 0.5 : -0.5;
+      
+      this.xScale.ticks(10).map(function(tick) {
+        pts.push({x: tick, y: -0.5, z: z}, {x: tick, y: 0.5, z: z});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      this.yScale.ticks(10).map(function(tick) {
+        pts.push({x: -0.5, y: tick, z: z}, {x: 0.5, y: tick, z: z});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      return {vertices: pts, lines: lines};
+    },
+    
+    yz: function(theta) {
+      var pts = [], lines = [];
+      
+      var x = (theta > 270 || theta < 90) ? 0.5 : -0.5;
+      
+      this.yScale.ticks(10).map(function(tick) {
+        pts.push({x: x, y: tick, z: -0.5}, {x: x, y: tick, z: 0.5});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      this.zScale.ticks(10).map(function(tick) {
+        pts.push({x: x, y: -0.5, z: tick}, {x: x, y: 0.5, z: tick});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      return {vertices: pts, lines: lines};
+    },
+    
+    zx: function(theta) {
+      var pts = [], lines = [];
+      
+      var y = (theta > 0 && theta < 180) ? 0.5 : -0.5;
+      
+      this.zScale.ticks(10).map(function(tick) {
+        pts.push({x: -0.5, y: y, z: tick}, {x: 0.5, y: y, z: tick});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      this.xScale.ticks(10).map(function(tick) {
+        pts.push({x: tick, y: y, z: -0.5}, {x: tick, y: y, z: 0.5});
+        lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
+      });
+      
+      return {vertices: pts, lines: lines};
+    }
+  };
+})
+
 .factory('$camera', function() {
-  var _angles = {theta: -35, phi: -55};
+  var _angles = {theta: 45, phi: 45};
   
   return {
     project: function(vertices) {
@@ -84,15 +127,17 @@ angular.module('cammy', [])
       var a = ct*pr;
       var b = st*pr;
       
+      var scale = 20;
+      
       return vertices
         .map(function(point, pointIndex) {
-          var x = point.x*20, y = point.y*20, z = point.z*20;
+          var x = point.x*scale, y = point.y*scale, z = -point.z*scale;
           return {x: -x*st + y*ct, y: x*a + y*b - z*sp, color: point.color};
         });
     },
     delta: function(deltaTheta, deltaPhi) {
-      _angles.theta += deltaTheta;
-      _angles.phi += deltaPhi;
+      _angles.theta = (360 + _angles.theta + deltaTheta)%360;
+      _angles.phi = Math.min(Math.max(_angles.phi - deltaPhi, 0), 180);
     },
     angles: function() {
       return _angles;
