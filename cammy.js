@@ -1,4 +1,4 @@
-angular.module('cammy', [])
+angular.module('cammy', ['nomnom'])
 
 .config(function config($routeProvider) {
   $routeProvider
@@ -6,128 +6,42 @@ angular.module('cammy', [])
   .otherwise({redirectTo: '/'});
 })
 
-.controller('MainCtrl', function HomeController($scope, $camera, $axis) {
-  $scope.angles = $camera.angles();
-  $scope.series = [];
-  
-  var oldX, oldY;
-  $scope.rotate = function(event) {
-    if ($scope.isRotating) {
-      $camera.delta(event.clientX - oldX, event.clientY - oldY);
-    }
-    
-    oldX = event.clientX, oldY = event.clientY;
-  };
-  
-  d3.json('other.json', function(error, data) {
-    $scope.logo = data;
-    $scope.stats = {vertices: data.points.length, lines: data.lines.length};
-    update();
-    $scope.$apply();    
-  });
-  
-  var update = function() {
-    var xy = $axis.xy($scope.angles);
-    var yz = $axis.yz($scope.angles);
-    var zx = $axis.zx($scope.angles);
-    
-    $scope.series = [
-      {vertices: xy.vertices, lines: xy.lines, labels: xy.labels, options: {drawLines: true}},
-      {vertices: yz.vertices, lines: yz.lines, labels: yz.labels, options: {drawLines: true}},
-      {vertices: zx.vertices, lines: zx.lines, labels: zx.labels, options: {drawLines: true}},
-      {vertices: $scope.logo && $scope.logo.points || [], lines: $scope.logo && $scope.logo.lines || [], options: {drawLines: true}}
-    ];
-    
-    $scope.series.forEach(function(series) {series.vertices = $camera.project(series.vertices);});
-  };
-  
-  $scope.$watch('angles', update, true);
+.controller('BodyCtrl', function($scope) {
+  $scope.remarkables = [
+    {theta:45, phi:45}, {theta:135, phi:45}, {theta:225, phi:45}, {theta:315, phi:45},
+    {theta:45, phi:125}, {theta:135, phi:125}, {theta:225, phi:125}, {theta:315, phi:125},
+    {theta:0, phi:0}, {theta:90, phi:0}, {theta:180, phi:0}, {theta:270, phi:0},
+    {theta:0, phi:90}, {theta:90, phi:90}, {theta:180, phi:90}, {theta:270, phi:90},
+    {theta:0, phi:180}, {theta:90, phi:180}, {theta:180, phi:180}, {theta:270, phi:180}
+  ];
 })
 
-.factory('$camera', function() {
-  var _angles = {
-    theta: 45, phi: 45,
-    thetaBetween: function(from, to) {
-      if (from > to) {
-        return this.theta > from || this.theta < to;
-      }
-      
-      return this.theta > from && this.theta < to;
-    },
-    phiNear: function() {
-      var delta = 30;
-      for (var i = 0; i < arguments.length; i++) {
-        if (this.phi < arguments[i] + delta && this.phi > arguments[i] - delta) {
-          return true;
-        }
-      }
-      
-      return false;
-    },
-    near: function() {
-      var delta = 30;
-      
-      for (var i = 0; i < arguments.length; i+=2) {
-        var theta = arguments[i], phi = arguments[i+1];
-        
-        if (this.thetaBetween(theta - delta, theta + delta)
-          &&
-          this.phi > phi - delta && this.phi < phi + delta
-        ) {
-          return true;
-        }
-      }
-      
-      return false;
-    }
-  };
+.controller('MainCtrl', function($scope, $camera, $axis) {
+  $scope.angles = {theta: 45, phi: 45};
   
-  return {
-    project: function(vertices) {
-      var phiRadian = _angles.phi*Math.PI/180;
-      var thetaRadian = _angles.theta*Math.PI/180;
-      
-      var ct = Math.cos(thetaRadian);
-      var sp = Math.sin(phiRadian);
-      var st = Math.sin(thetaRadian);
-      var pr = Math.cos(phiRadian);
-      
-      var a = ct*pr;
-      var b = st*pr;
-      
-      var scale = 20;
-      
-      return vertices
-        .map(function(point, pointIndex) {
-          var x = point.x*scale, y = point.y*scale, z = -point.z*scale;
-          return {x: -x*st + y*ct, y: x*a + y*b - z*sp, color: point.color, plot: point.plot};
-        });
-    },
-    delta: function(deltaTheta, deltaPhi) {
-      _angles.theta = (360 + _angles.theta + deltaTheta)%360;
-      _angles.phi = Math.min(Math.max(_angles.phi - deltaPhi, 0), 180);
-    },
-    angles: function() {
-      return _angles;
-    }
-  }
+  d3.json('logo.json', function(error, data) {
+    $scope.data = {vertices: data.points, lines: data.lines, options: {drawLines: true}};
+    $scope.stats = {vertices: data.points.length, lines: data.lines.length};
+    $scope.$apply();    
+  });
 })
 
 //TONEVERDO: Add pseudo memoization for that
-.factory('$axis', function() {
+.factory('$axis', function($n) {
   return {
     xScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
     yScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
     zScale: d3.scale.linear().domain([-0.5, 0.5]).range([-0.5, 0.5]),
     
-    xy: function(angles) {
+    xy: function(theta, phi) {
       var pts = [], lines = [], labels = [];
       
-      var z = (angles.phi > 90) ? 0.5 : -0.5;
+      var z = (phi > 90) ? 0.5 : -0.5;
       var zOffset = function(offset) {
-        return z - (90 - angles.phi || 1)/Math.abs(90 - angles.phi || 1)/100 * Math.max((offset - Math.abs((90 - angles.phi))), 0);
+        return z - (90 - phi || 1)/Math.abs(90 - phi || 1)/100 * Math.max((offset - Math.abs((90 - phi))), 0);
       }
-      var ySign = ((angles.theta > 0 && angles.theta < 180) ? -1 : 1);
+      
+      var ySign = ($n.om(phi,'180')() && $n.om(theta,'90').or('270')() ? -1 : 1) * ($n.om(theta,'[0,180[')() ? -1 : 1);
       
       // x ticks
       this.xScale.ticks(10).map(function(tick) {
@@ -136,41 +50,58 @@ angular.module('cammy', [])
       });
       
       // x labels
-      if (!angles.near(0, 90, 180, 90, 360, 90)) {
+      if (
+        $n.om(phi, '[0,80]').or('[100,180]')()
+        ||
+        ($n.om(phi, '[80,100]')() && !$n.om(theta, '[0,10]').or('[170,190]').or('[350,360]')())
+      ) {
         this.xScale.ticks(10).map(function(tick) {
           pts.push({x: tick, y: ySign * 0.6, z: zOffset(7)});
           labels.push({point: pts.length - 1, text: '' + tick});
         });
         
-        pts.push({x: 0, y: ySign * 0.8, z: zOffset(10)});
+        pts.push({x: 0, y: ySign * 0.8, z: zOffset(30)});
         labels.push({point: pts.length - 1, text: 'x axis'});
       }
       
       // y ticks
-      var xSign = angles.thetaBetween(90, 270) ? 1 : -1;
       this.yScale.ticks(10).map(function(tick) {
         pts.push({x: -0.5, y: tick, z: z}, {x: 0.5, y: tick, z: z});
         lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
       });
       
       // y labels
-      if (!angles.near(90, 90, 270, 90)) {
+      var xSign = 1;
+      
+      if (
+          (!$n.om(phi,'180')() && $n.om(theta, '[0,90[').or('[270,360]')())
+          ||
+          ($n.om(phi,'180')() && $n.om(theta, '270').or('180')())
+      ) {
+        xSign = -1;
+      }
+      
+      if (
+        $n.om(phi, '[0,80]').or('[100,180]')()
+        ||
+        ($n.om(phi, '[80,100]')() && !$n.om(theta, '[80,100]').or('[250,290]')())
+      ) {
         this.yScale.ticks(10).map(function(tick) {
           pts.push({x: xSign * 0.6, y: tick, z: zOffset(7)});
           labels.push({point: pts.length - 1, text: '' + tick});
         });
         
-        pts.push({x: xSign * 0.8, y: 0, z: zOffset(10)});
+        pts.push({x: xSign * 0.8, y: 0, z: zOffset(30)});
         labels.push({point: pts.length - 1, text: 'y axis'});
       }
       
       return {vertices: pts, lines: lines, labels: labels};
     },
     
-    yz: function(angles) {
+    yz: function(theta, phi) {
       var pts = [], lines = [], labels = [];
       
-      var xSign = angles.thetaBetween(270, 90) ? 1 : -1;
+      var xSign = $n.om(theta, ']270,360]').or('[0,90]')() ? 1 : -1;
       
       this.yScale.ticks(10).map(function(tick) {
         pts.push({x: xSign*0.5, y: tick, z: -0.5}, {x: xSign*0.5, y: tick, z: 0.5});
@@ -184,22 +115,29 @@ angular.module('cammy', [])
         lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
       });
       
-      var ySign = angles.thetaBetween(180, 270) ? 1 : -1;
+      var ySign = $n.om(theta, '[180,270]')() ? 1 : -1;
       // z labels
-      if ((angles.thetaBetween(0, 90) || angles.thetaBetween(180, 270)) && !angles.phiNear(0, 180)) {
+      if (
+        !$n.om(phi, '[0,10]').or('[170,180]')()
+        &&
+        $n.om(theta, '[0,90]').or(']180,270]')()
+      ) {
         this.zScale.ticks(10).map(function(tick) {
-          pts.push({x: xSign*0.6, y: ySign*0.5, z: tick});
+          pts.push({x: xSign*0.6, y: ySign*0.6, z: tick});
           labels.push({point: pts.length - 1, text: tick});
         });
+        
+        pts.push({x: xSign * 0.8, y: ySign*0.8, z: 0});
+        labels.push({point: pts.length - 1, text: 'z axis'});
       }
       
       return {vertices: pts, lines: lines, labels: labels};
     },
     
-    zx: function(angles) {
+    zx: function(theta, phi) {
       var pts = [], lines = [], labels = [];
       
-      var ySign = angles.thetaBetween(0, 180) ? 1 : -1;
+      var ySign = $n.om(theta, ']0,180]')() ? 1 : -1;
       
       // z ticks
       this.zScale.ticks(10).map(function(tick) {
@@ -207,14 +145,20 @@ angular.module('cammy', [])
         lines.push({from: pts.length - 2, to: pts.length - 1, color: 'grey'});
       });
       
-      var xSign = angles.thetaBetween(270, 360) ? -1 : 1;
+      var xSign = $n.om(theta,'[0,90]').or('[270,360]')() ? -1 : 1;
       // z labels
       if (
-        (angles.thetaBetween(90, 180) || angles.thetaBetween(270, 360) || angles.theta == 0) && !angles.phiNear(0, 180)) {
+          !$n.om(phi, '[0,10]').or('[170,180]')()
+          &&
+          $n.om(theta, ']90,180]').or(']270,360]')()
+      ) {
         this.zScale.ticks(10).map(function(tick) {
-          pts.push({x: xSign*0.5, y: ySign*0.6, z: tick});
+          pts.push({x: xSign*0.6, y: ySign*0.6, z: tick});
           labels.push({point: pts.length - 1, text: tick});
         });
+        
+        pts.push({x: xSign * 0.8, y: ySign*0.8, z: 0});
+        labels.push({point: pts.length - 1, text: 'z axis'});
       }
       
       this.xScale.ticks(10).map(function(tick) {
@@ -227,79 +171,129 @@ angular.module('cammy', [])
   };
 })
 
+.factory('$camera', function($n) {
+  return {
+    project: function(vertices, angles) {
+      var phiRadian = angles.phi*Math.PI/180;
+      var thetaRadian = angles.theta*Math.PI/180;
+      
+      var ct = Math.cos(thetaRadian);
+      var sp = Math.sin(phiRadian);
+      var st = Math.sin(thetaRadian);
+      var pr = Math.cos(phiRadian);
+      
+      var a = ct*pr;
+      var b = st*pr;
+      
+      var scale = 20;
+      
+      return vertices.map(function(point, pointIndex) {
+        var x = point.x*scale, y = point.y*scale, z = -point.z*scale;
+        return {x: -x*st + y*ct, y: x*a + y*b - z*sp, color: point.color};
+      });
+    },
+    delta: function(deltaTheta, deltaPhi, angles) {
+      angles.theta = (360 + angles.theta + deltaTheta)%360;
+      angles.phi = Math.min(Math.max(angles.phi - deltaPhi, 0), 180);
+      
+      var remarkables = [
+        {theta:0, phi:0}, {theta:90, phi:0}, {theta:180, phi:0}, {theta:270, phi:0},
+        {theta:0, phi:90}, {theta:90, phi:90}, {theta:180, phi:90}, {theta:270, phi:90},
+        {theta:0, phi:180}, {theta:90, phi:180}, {theta:180, phi:180}, {theta:270, phi:180}
+      ];
+      
+      remarkables.forEach(function(couple) {
+        if (
+          $n.near(angles.theta, couple.theta, 2) 
+          &&
+          $n.near(angles.phi, couple.phi, 2)
+        ) {
+          angles.theta = couple.theta;
+          angles.phi = couple.phi;
+        }
+      })
+    }
+  }
+})
+
 .directive('cammyCanvas', function() {
   return {
+    controller: ['$scope', '$camera', '$axis', '$canvas', function($scope, $camera, $axis, $canvas) {
+      $scope.draw = $canvas.draw;
+      
+      var oldX, oldY;
+      $scope.rotate = function(event) {
+        if ($scope.isRotating) {
+          $camera.delta(event.clientX - oldX, event.clientY - oldY, $scope.my_angles);
+        }
+        
+        oldX = event.clientX, oldY = event.clientY;
+      };
+      
+      var update = function() {
+        if (!$scope.my_angles) {
+          return;
+        }
+        
+        var xy = $axis.xy($scope.my_angles.theta, $scope.my_angles.phi);
+        var yz = $axis.yz($scope.my_angles.theta, $scope.my_angles.phi);
+        var zx = $axis.zx($scope.my_angles.theta, $scope.my_angles.phi);
+        
+        $scope.axes = [
+          {vertices: xy.vertices, lines: xy.lines, labels: xy.labels, options: {drawLines: true}},
+          {vertices: yz.vertices, lines: yz.lines, labels: yz.labels, options: {drawLines: true}},
+          {vertices: zx.vertices, lines: zx.lines, labels: zx.labels, options: {drawLines: true}},
+        ];
+        
+        $scope.axes.forEach(function(d) {d.coordinates = $camera.project(d.vertices, $scope.my_angles);});
+        
+        $scope.series = $scope.data ? [$scope.data] : [];
+        $scope.series.forEach(function(d) {d.coordinates = $camera.project(d.vertices, $scope.my_angles);});
+      };
+  
+      $scope.$watch('my_angles', update, true);
+      $scope.$watch('data', update);
+    }],
     restrict: 'E',
-    scope: {series: '='},
-    template: '<div></div>',
+    scope: {data: '=', angles:'='},
+    template: '<div ng-mousedown="isRotating=true" ng-mouseup="isRotating=false" ng-mousemove="rotate($event)"></div>',
     replace: true,
     link: function($scope, iElm, iAttrs, controller) {
       var g, x, y;
       
-      var draw = function(series) {
-        var margin = {top: 0, right: 0, bottom: 0, left: 0}
-         , width = 750 - margin.left - margin.right
-         , height = 750 - margin.top - margin.bottom;
+      var draw = function(axes, series) {
+        var width = 750, height = 750;
 
-        x = d3.scale.linear()
-         .domain([-20, 20])
-         .range([ 0, width ]);
-
-        y = d3.scale.linear()
-         .domain([-20, 20])
-         .range([ height, 0 ]);
+        x = d3.scale.linear().domain([-20, 20]).range([ 0, width ]);
+        y = d3.scale.linear().domain([-20, 20]).range([ height, 0 ]);
         
         g = d3.select(iElm[0])
          .append('canvas')
-         .attr('width', width + margin.right + margin.left)
-         .attr('height', height + margin.top + margin.bottom)
-         .attr('class', 'chart')
+         .attr('width', width).attr('height', height).attr('class', 'chart')
         
         update(series);
       };
       
-      var update = function(series) {
+      var update = function(axes, series) {
         // This is weird.
         var ctx = g[0][0].getContext('2d');
-        
         ctx.clearRect(0, 0, 751, 751);
         
-        if (!series) {
-          return;
-        }
-        series.map(function(s) {
-          if (!!s.options.drawLines) {
-            s.lines.map(function(d) {
-              ctx.beginPath();
-              ctx.strokeStyle = d.color;
-              ctx.moveTo(x(s.vertices[d.from].x), y(s.vertices[d.from].y));
-              ctx.lineTo(x(s.vertices[d.to].x), y(s.vertices[d.to].y));
-              ctx.stroke();
-            });
-          }
-          
-          if (s.labels) {
-            ctx.font = '10pt';
-            ctx.textBaseline = 'middle';
-            ctx.textAlign = 'center';
-            ctx.fillStyle = 'black';;
-            s.labels.map(function(d) {
-              ctx.fillText(d.text, x(s.vertices[d.point].x), y(s.vertices[d.point].y));
-            });
-          }
-          
-          if (!!s.options.drawDots) {
-            s.vertices.map(function(d) {
-              ctx.fillStyle = d.color;
-              ctx.fillRect(x(d.x), y(d.y), 2, 2);
-            });
-          }
-        });
+        $scope.draw(ctx, axes, x, y);
+        $scope.draw(ctx, series, x, y);
       };
       
       $scope.$watch('series', function() {
-        (g && update || draw)($scope.series); 
-      }, true);
+        (g && update || draw)($scope.axes, $scope.series); 
+      });
+      
+      $scope.$watch('axes', function() {
+        (g && update || draw)($scope.axes, $scope.series); 
+      });
+      
+      $scope.$watch('angles', function() {
+        $scope.my_angles = $scope.angles || {theta: 45, phi: 45};
+      });
     }
   }
 })

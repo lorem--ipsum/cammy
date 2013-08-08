@@ -6,19 +6,29 @@
   <link rel="stylesheet" type="text/css" href="assets/kube.min.css"/>
   <link rel="stylesheet" type="text/css" href="app.css"/>
 </head>
-<body ng-controller="MainCtrl">
+<body ng-controller="BodyCtrl">
   <div class='units-row content'>
-    <div class='unit-100'><h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1></div>
-    <div ng-mousedown="isRotating=true" ng-mouseup="isRotating=false" ng-mousemove="rotate($event)" class='unit-100'>
-      <cammy-canvas series='series'></cammy-canvas>
-    </div>
-    <div class='unit-100'>
-      <span class='label label-blue'>&theta; {{angles.theta}}&deg;</span>
-      <span class='label label-blue'>&phi; {{angles.phi}}&deg;</span>
+    <!-- <div ng-controller="MainCtrl" ng-repeat='couple in remarkables' style='float:left;'>
+      <div class='unit-100'>
+        <cammy-canvas data='data' angles='couple'></cammy-canvas>
+      </div>
+      <div class='unit-100'>
+        <span class='label label-blue'>&theta; {{couple.theta}}&deg;</span>
+        <span class='label label-blue'>&phi; {{couple.phi}}&deg;</span>
+      </div>
+    </div> -->
+    <div ng-controller="MainCtrl" class='unit-100'>
+      <div class='unit-100'><h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1></div>
+      <cammy-canvas data='data' angles='angles'></cammy-canvas>
+      <div class='unit-100'>
+        <span class='label label-blue'>&theta; {{angles.theta}}&deg;</span>
+        <span class='label label-blue'>&phi; {{angles.phi}}&deg;</span>
+      </div>
     </div>
   </div>
 </body>
 <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-unstable/angular.min.js"></script>
+<script type="text/javascript" src="utils.js"></script>
 <script type="text/javascript" src="cammy.js"></script>
 </html>
