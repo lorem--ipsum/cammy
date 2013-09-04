@@ -6,7 +6,6 @@ angular.module('cammy', ['nomnom'])
   .otherwise({redirectTo: '/'});
 })
 
-
 .controller('BodyCtrl', function($scope) {
   $scope.remarkables = [
     {theta:45, phi:45}, {theta:135, phi:45}, {theta:225, phi:45}, {theta:315, phi:45},
@@ -17,14 +16,50 @@ angular.module('cammy', ['nomnom'])
   ];
 })
 
-.controller('MainCtrl', function($scope, $camera, $axis) {
+.controller('MainCtrl', function($scope, $camera, $axis, $perlin, $colors, $herlock) {
   $scope.angles = {theta: 45, phi: 45};
+  $scope.parameters = {
+    sideSize: 25,
+    frequency: 2.6,
+    zIncrement: 0.013
+  };
   
-  d3.json('logo.json', function(error, data) {
-    $scope.data = {vertices: data.points, lines: data.lines, options: {drawLines: true}};
-    $scope.stats = {vertices: data.points.length, lines: data.lines.length};
-    $scope.$apply();    
-  });
+  var meanZ = 0;
+  var colors = d3.scale.quantize().domain([-0.5, 0.5]).range($colors);
+  
+  $scope.generateNoise = function() {
+    var vertices = [];
+    
+    var step = 100/$scope.parameters.sideSize;
+    
+    for (var x = -50; x <= 50; x += step) {
+      for (var y = -50; y <= 50; y += step) {
+        var z = $perlin.noise(x*0.01*$scope.parameters.frequency, y*0.01*$scope.parameters.frequency, meanZ) - 0.5;
+        vertices.push({x: x*0.01, y: y*0.01, z: z, color: colors(z)});
+      }
+    }
+    var lines = $herlock.link($scope.parameters.sideSize+1, $scope.parameters.sideSize+1, vertices);
+    $scope.data = {vertices: vertices, lines: lines, options: {drawDots: true, drawLines: true}};
+    $scope.stats = {vertices: vertices.length, lines: lines.length};
+    
+    meanZ += $scope.parameters.zIncrement;
+    
+    $scope.$apply();
+  };
+  
+  setInterval($scope.generateNoise, 10);
+  
+  $scope.$watch('parameters', function() {
+    $scope.parameters.sideSize = +$scope.parameters.sideSize;
+    $scope.parameters.frequency = +$scope.parameters.frequency;
+    $scope.parameters.zIncrement = +$scope.parameters.zIncrement;
+  }, true);
+  
+  // d3.json('logo.json', function(error, data) {
+  //   $scope.data = {vertices: data.points, lines: data.lines, options: {drawLines: true}};
+  //   $scope.stats = {vertices: data.points.length, lines: data.lines.length};
+  //   $scope.$apply();    
+  // });
 })
 
 //TONEVERDO: Add pseudo memoization for that
