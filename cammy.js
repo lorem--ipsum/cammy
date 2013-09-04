@@ -6,6 +6,7 @@ angular.module('cammy', ['nomnom'])
   .otherwise({redirectTo: '/'});
 })
 
+
 .controller('BodyCtrl', function($scope) {
   $scope.remarkables = [
     {theta:45, phi:45}, {theta:135, phi:45}, {theta:225, phi:45}, {theta:315, phi:45},
