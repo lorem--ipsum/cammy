@@ -7,18 +7,45 @@
   <link rel="stylesheet" type="text/css" href="app.css"/>
 </head>
 <body ng-controller="BodyCtrl">
-  <div class='units-row content'>
-    <!-- <div ng-controller="MainCtrl" ng-repeat='couple in remarkables' style='float:left;'>
+  <div  ng-controller="MainCtrl" class='units-row content'>
+    <di class='unit-100'>
+      
       <div class='unit-100'>
-        <cammy-canvas data='data' angles='couple'></cammy-canvas>
+        <h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1>
       </div>
-      <div class='unit-100'>
-        <span class='label label-blue'>&theta; {{couple.theta}}&deg;</span>
-        <span class='label label-blue'>&phi; {{couple.phi}}&deg;</span>
+      
+      <div class='units-row'>
+        <div class='unit-33'>
+          <form class='forms'>
+            <p>
+              <span class='small'>Accuracy</span>
+              <input type="range" ng-model="parameters.sideSize" min="5" max="50" step="5">
+              <span class='label label-data'>{{parameters.sideSize}}</span>
+            </p>
+          </form>
+        </div>
+        
+        <div class='unit-33'>
+          <form class='forms'>
+            <p>
+              <span class='small'>Frequency</span>
+              <input type="range" ng-model="parameters.frequency" min="0.1" max="10" step="0.05">
+              <span class='label label-data'>{{parameters.frequency}}</span>
+            </p>
+          </form>
+        </div>
+        <div class='unit-33'>
+          <form class='forms'>
+            <p>
+              <span class='small'>Speed</span>
+              <input type="range" ng-model="parameters.zIncrement" min="0.0001" max="0.1" step="0.0005">
+              <span class='label label-data'>{{parameters.zIncrement}}</span>
+            </p>
+          </form>
+        </div>
       </div>
-    </div> -->
-    <div ng-controller="MainCtrl" class='unit-100'>
-      <div class='unit-100'><h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1></div>
+      
+      
       <cammy-canvas data='data' angles='angles'></cammy-canvas>
       <div class='unit-100'>
         <span class='label label-blue'>&theta; {{angles.theta}}&deg;</span>
