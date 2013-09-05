@@ -21,7 +21,7 @@ angular.module('cammy', ['nomnom'])
   $scope.parameters = {
     sideSize: 25,
     frequency: 2.6,
-    zIncrement: 0.013
+    zIncrement: 0.01
   };
   
   var meanZ = 0;
@@ -39,7 +39,7 @@ angular.module('cammy', ['nomnom'])
       }
     }
     var lines = $herlock.link($scope.parameters.sideSize+1, $scope.parameters.sideSize+1, vertices);
-    $scope.data = {vertices: vertices, lines: lines, options: {drawDots: true, drawLines: true}};
+    $scope.data = {vertices: vertices, lines: lines, options: {drawLines: true}};
     $scope.stats = {vertices: vertices.length, lines: lines.length};
     
     meanZ += $scope.parameters.zIncrement;
@@ -47,7 +47,7 @@ angular.module('cammy', ['nomnom'])
     $scope.$apply();
   };
   
-  setInterval($scope.generateNoise, 10);
+  setInterval($scope.generateNoise);
   
   $scope.$watch('parameters', function() {
     $scope.parameters.sideSize = +$scope.parameters.sideSize;
@@ -315,7 +315,7 @@ angular.module('cammy', ['nomnom'])
         var ctx = g[0][0].getContext('2d');
         ctx.clearRect(0, 0, 751, 751);
         
-        $scope.draw(ctx, axes, x, y);
+        // $scope.draw(ctx, axes, x, y);
         $scope.draw(ctx, series, x, y);
       };
       

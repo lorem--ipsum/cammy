@@ -103,6 +103,7 @@ angular.module('nomnom', [])
         if (!!s.options.drawLines) {
           s.lines.map(function(d) {
             context.beginPath();
+            context.lineWidth = +s.options.lineWidth || 1;
             context.strokeStyle = d.color;
             context.moveTo(x(s.coordinates[d.from].x), y(s.coordinates[d.from].y));
             context.lineTo(x(s.coordinates[d.to].x), y(s.coordinates[d.to].y));
@@ -121,9 +122,11 @@ angular.module('nomnom', [])
         }
         
         if (!!s.options.drawDots) {
+          var r = s.options.dotRadius || 2;
+          
           s.coordinates.map(function(d) {
             context.fillStyle = d.color;
-            context.fillRect(x(d.x), y(d.y), 2, 2);
+            context.fillRect(x(d.x) - r*.5, y(d.y) - r*.5, r, r);
           });
         }
       });
