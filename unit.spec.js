@@ -2,19 +2,15 @@ describe('$nom', function() {
   beforeEach(module('nomnom'));
   
   describe('$herlock', function() {
-    it('should link dots for a 3x2 grid', inject(function($herlock) {
-      var vertices = [
-        {color: "a"}, {color: "b"}, {color: "c"},
-        {color: "d"}, {color: "e"}, {color: "f"}
-      ];
-      
-      var expectedResult =[
-        {from: 0, to: 1, color: "a"}, {from: 1, to: 2, color: "b"},
-        {from: 3, to: 4, color: "d"}, {from: 4, to: 5, color: "e"},
-        {from: 0, to: 3, color: "a"}, {from: 1, to: 4, color: "b"}, {from: 2, to: 5, color: "c"}
-      ];
-      
-      expect($herlock.link(2, 3, vertices)).toEqual(expectedResult);
+    xit('should generate dots for a side size = 1', inject(function($herlock) {
+      var expectedResult = [{ x : -0.5, y : -0.5 }, { x : -0.5, y : 0.5 }, { x : 0.5, y : -0.5 }, { x : 0.5, y : 0.5 }];
+      expect($herlock.dots(1)).toEqual(expectedResult);
+    }));
+    
+    it('should generate proper amount of dots', inject(function($herlock) {
+      expect($herlock.dots(5).length).toBe(5*5);
+      expect($herlock.dots(15).length).toBe(15*15);
+      expect($herlock.dots(25).length).toBe(25*25);
     }));
     
     it('should link dots for a 3x3 grid', inject(function($herlock) {
@@ -25,18 +21,18 @@ describe('$nom', function() {
       ];
       
       var expectedResult =[
-        { from: 0, to: 1, color: 'a' },
-        { from: 1, to: 2, color: 'b' },
-        { from: 3, to: 4, color: 'd' },
-        { from: 4, to: 5, color: 'e' },
-        { from: 6, to: 7, color: 'g' },
-        { from: 7, to: 8, color: 'h' },
-        { from: 0, to: 3, color: 'a' },
-        { from: 3, to: 6, color: 'd' },
-        { from: 1, to: 4, color: 'b' },
-        { from: 4, to: 7, color: 'e' },
-        { from: 2, to: 5, color: 'c' },
-        { from: 5, to: 8, color: 'f' }
+        {from: 0, to: 1},
+        {from: 1, to: 2},
+        {from: 3, to: 4},
+        {from: 4, to: 5},
+        {from: 6, to: 7},
+        {from: 7, to: 8},
+        {from: 0, to: 3},
+        {from: 3, to: 6},
+        {from: 1, to: 4},
+        {from: 4, to: 7},
+        {from: 2, to: 5},
+        {from: 5, to: 8}
       ]
       
       expect($herlock.link(3, 3, vertices)).toEqual(expectedResult);
@@ -109,12 +105,7 @@ describe('$nom', function() {
     }));
 
     it('should work with 50x50 vertices', inject(function($herlock) {
-      var v = [];
-      for (var i = 0 ; i< 2500; i++) {
-        v.push({color: i})
-      }
-      
-      $herlock.link(50, 50, v);
+      $herlock.link(50, 50);
     }))
   
   });

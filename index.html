@@ -15,17 +15,32 @@
       </div>
       
       <div class='units-row'>
-        <div class='unit-33'>
+      
+        <div class='unit-25'>
+          <form class='forms'>
+            <p>
+              <span class='small'>Method</span>
+              <select
+                ng-model="parameters.method">
+                <option value="progress">Progress</option>
+                <option value="noise">Noise</option>
+              </select>
+            </p>
+          </form>
+        </div>
+       
+       
+        <div class='unit-25'>
           <form class='forms'>
             <p>
               <span class='small'>Accuracy</span>
-              <input type="range" ng-model="parameters.sideSize" min="5" max="50" step="5">
+              <input type="range" ng-model="parameters.sideSize" min="2" max="50" step="1">
               <span class='label label-data'>{{parameters.sideSize}}</span>
             </p>
           </form>
         </div>
         
-        <div class='unit-33'>
+        <div class='unit-25'>
           <form class='forms'>
             <p>
               <span class='small'>Frequency</span>
@@ -34,12 +49,12 @@
             </p>
           </form>
         </div>
-        <div class='unit-33'>
+        <div class='unit-25'>
           <form class='forms'>
             <p>
               <span class='small'>Speed</span>
-              <input type="range" ng-model="parameters.zIncrement" min="0.0001" max="0.1" step="0.0005">
-              <span class='label label-data'>{{parameters.zIncrement}}</span>
+              <input type="range" ng-model="parameters.speed" min="0.0001" max="0.1" step="0.0005">
+              <span class='label label-data'>{{parameters.speed}}</span>
             </p>
           </form>
         </div>

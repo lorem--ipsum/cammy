@@ -18,41 +18,60 @@ angular.module('cammy', ['nomnom'])
 
 .controller('MainCtrl', function($scope, $camera, $axis, $perlin, $colors, $herlock) {
   $scope.angles = {theta: 45, phi: 45};
-  $scope.parameters = {
-    sideSize: 25,
-    frequency: 2.6,
-    zIncrement: 0.01
-  };
+  $scope.parameters = {method: 'progress', sideSize: 25, frequency: 2.6, speed: 0.01};
   
-  var meanZ = 0;
-  var colors = d3.scale.quantize().domain([-0.5, 0.5]).range($colors);
+  var vertices, lines;
   
-  $scope.generateNoise = function() {
-    var vertices = [];
+  $scope.generateData = function() {
+    vertices = $herlock.dots($scope.parameters.sideSize);
+    lines = $herlock.link($scope.parameters.sideSize, vertices);
     
-    var step = 100/$scope.parameters.sideSize;
-    
-    for (var x = -50; x <= 50; x += step) {
-      for (var y = -50; y <= 50; y += step) {
-        var z = $perlin.noise(x*0.01*$scope.parameters.frequency, y*0.01*$scope.parameters.frequency, meanZ) - 0.5;
-        vertices.push({x: x*0.01, y: y*0.01, z: z, color: colors(z)});
-      }
-    }
-    var lines = $herlock.link($scope.parameters.sideSize+1, $scope.parameters.sideSize+1, vertices);
-    $scope.data = {vertices: vertices, lines: lines, options: {drawLines: true}};
     $scope.stats = {vertices: vertices.length, lines: lines.length};
-    
-    meanZ += $scope.parameters.zIncrement;
-    
-    $scope.$apply();
   };
   
-  setInterval($scope.generateNoise);
+  var colors = d3.scale.quantize().domain([-0.5, 0.5]).range($colors);
+  var abstractProgress = 0;
+  
+  $scope.progress = function() {
+    vertices.map(function(v) {
+      var f = $scope.parameters.frequency;
+      v.z = $perlin.noise((abstractProgress + v.x)*f, (v.y)*f, 0.013) - 0.5;
+      v.color = colors(v.z);
+      
+    });
+    
+    abstractProgress += $scope.parameters.speed;
+  };
+  
+  $scope.noise = function() {
+    vertices.map(function(v) {
+      var f = $scope.parameters.frequency;
+      v.z = $perlin.noise(v.x*f, v.y*f, abstractProgress) - 0.5;
+      v.color = colors(v.z);
+    });
+    
+    abstractProgress += $scope.parameters.speed;
+  };
+  
+  $scope.applyData = function() {
+    $herlock.applyColorToLines(lines, vertices);
+    $scope.data = {vertices: vertices, lines: lines, options: {drawLines: true}};
+  };
+  
+  $scope.generateData();
+  
+  setInterval(function() {
+    $scope[$scope.parameters.method]();
+    $scope.applyData();
+    $scope.$apply();
+  });
   
   $scope.$watch('parameters', function() {
     $scope.parameters.sideSize = +$scope.parameters.sideSize;
     $scope.parameters.frequency = +$scope.parameters.frequency;
-    $scope.parameters.zIncrement = +$scope.parameters.zIncrement;
+    $scope.parameters.speed = +$scope.parameters.speed;
+    $scope.generateData();
+    $scope.updateDataWithNoise();
   }, true);
   
   // d3.json('logo.json', function(error, data) {
