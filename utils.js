@@ -119,7 +119,7 @@ angular.module('nomnom', [])
       }
       
       series.map(function(s) {
-        if (!!s.options.drawLines) {
+        if (s.options.drawLines) {
           s.lines.map(function(d) {
             context.beginPath();
             context.lineWidth = +s.options.lineWidth || 1;
@@ -141,7 +141,7 @@ angular.module('nomnom', [])
         }
         
         if (!!s.options.drawDots) {
-          var r = s.options.dotRadius || 2;
+          var r = s.options.dotWidth || 2;
           
           s.coordinates.map(function(d) {
             context.fillStyle = d.color;

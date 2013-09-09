@@ -16,11 +16,16 @@ angular.module('cammy', ['nomnom'])
   ];
 })
 
-.controller('MainCtrl', function($scope, $camera, $axis, $perlin, $colors, $herlock) {
+.controller('MainCtrl', function($scope, $perlin, $colors, $herlock) {
   $scope.angles = {theta: 45, phi: 45};
-  $scope.parameters = {method: 'progress', sideSize: 25, frequency: 2.6, speed: 0.01};
+  $scope.parameters = {method: 'progress', sideSize: 25, frequency: 2.6, speed: 25};
+  $scope.chartOptions = {drawAxes: true};
+  $scope.seriesOptions = {drawLines: true, drawDots: false, lineWidth: 1, dotWidth: 2};
   
-  var vertices, lines;
+  var vertices,
+      lines,
+      colors = d3.scale.quantize().domain([-0.5, 0.5]).range($colors),
+      abstractProgress = 0;
   
   $scope.generateData = function() {
     vertices = $herlock.dots($scope.parameters.sideSize);
@@ -29,40 +34,31 @@ angular.module('cammy', ['nomnom'])
     $scope.stats = {vertices: vertices.length, lines: lines.length};
   };
   
-  var colors = d3.scale.quantize().domain([-0.5, 0.5]).range($colors);
-  var abstractProgress = 0;
-  
-  $scope.progress = function() {
-    vertices.map(function(v) {
-      var f = $scope.parameters.frequency;
-      v.z = $perlin.noise((abstractProgress + v.x)*f, (v.y)*f, 0.013) - 0.5;
-      v.color = colors(v.z);
-      
-    });
-    
-    abstractProgress += $scope.parameters.speed;
+  $scope.methods = {
+    progress: function(vertice, frequency, step) {
+      return $perlin.noise((step + vertice.x)*frequency, (vertice.y)*frequency, 0.013) - 0.5;
+    },
+    noise: function(vertice, frequency, step) {
+      return $perlin.noise(vertice.x*frequency, vertice.y*frequency, step) - 0.5;
+    }
   };
   
-  $scope.noise = function() {
+  $scope.next = function(method) {
     vertices.map(function(v) {
-      var f = $scope.parameters.frequency;
-      v.z = $perlin.noise(v.x*f, v.y*f, abstractProgress) - 0.5;
+      v.z = method(v, $scope.parameters.frequency, abstractProgress);
       v.color = colors(v.z);
     });
     
-    abstractProgress += $scope.parameters.speed;
-  };
-  
-  $scope.applyData = function() {
+    abstractProgress += $scope.parameters.sideSize*$scope.parameters.speed/100000;
+    
     $herlock.applyColorToLines(lines, vertices);
-    $scope.data = {vertices: vertices, lines: lines, options: {drawLines: true}};
+    $scope.data = {vertices: vertices, lines: lines, options: $scope.seriesOptions};
   };
   
   $scope.generateData();
   
   setInterval(function() {
-    $scope[$scope.parameters.method]();
-    $scope.applyData();
+    $scope.next($scope.methods[$scope.parameters.method]);
     $scope.$apply();
   });
   
@@ -71,7 +67,8 @@ angular.module('cammy', ['nomnom'])
     $scope.parameters.frequency = +$scope.parameters.frequency;
     $scope.parameters.speed = +$scope.parameters.speed;
     $scope.generateData();
-    $scope.updateDataWithNoise();
+    $scope.next($scope.methods[$scope.parameters.method]);
+    
   }, true);
   
   // d3.json('logo.json', function(error, data) {
@@ -310,7 +307,7 @@ angular.module('cammy', ['nomnom'])
       $scope.$watch('data', update);
     }],
     restrict: 'E',
-    scope: {data: '=', angles:'='},
+    scope: {data: '=', angles: '=', isRotating: '=?', options: '=?'},
     template: '<div ng-mousedown="isRotating=true" ng-mouseup="isRotating=false" ng-mousemove="rotate($event)"></div>',
     replace: true,
     link: function($scope, iElm, iAttrs, controller) {
@@ -334,9 +331,13 @@ angular.module('cammy', ['nomnom'])
         var ctx = g[0][0].getContext('2d');
         ctx.clearRect(0, 0, 751, 751);
         
-        // $scope.draw(ctx, axes, x, y);
+        $scope.options.drawAxes && $scope.draw(ctx, axes, x, y);
         $scope.draw(ctx, series, x, y);
       };
+      
+      $scope.$watch('options', function() {
+        (g && update || draw)($scope.axes, $scope.series); 
+      });
       
       $scope.$watch('series', function() {
         (g && update || draw)($scope.axes, $scope.series); 

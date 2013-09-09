@@ -2,72 +2,96 @@
 <html ng-app="cammy">
 <head>
   <title>Cammy</title>
-  
+
   <link rel="stylesheet" type="text/css" href="assets/kube.min.css"/>
   <link rel="stylesheet" type="text/css" href="app.css"/>
 </head>
 <body ng-controller="BodyCtrl">
   <div  ng-controller="MainCtrl" class='units-row content'>
-    <di class='unit-100'>
+    
+    <div class='unit-100'>
+      <h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1>
+    </div>
+    
+    <div class='units-row'>
       
-      <div class='unit-100'>
-        <h1>Cammy<small> {{stats.vertices}} vertices, {{stats.lines}} lines</small></h1>
+      
+      <div class='unit-70'>
+        <div class='units-row'>
+          <div class='unit-100 text-centered'>
+            <cammy-canvas data='data' angles='angles' is-rotating="isRotating" options="chartOptions"></cammy-canvas>
+          </div>
+          <div class='unit-100 text-centered' ng-show="isRotating">
+            <span class='label label-data'>&theta; {{angles.theta}}&deg;</span>
+            <span class='label label-data'>&phi; {{angles.phi}}&deg;</span>
+          </div>
+          <div class='unit-100 text-centered' ng-hide="isRotating">
+            <span class='label label-data'>click and drag to rotate</span>
+          </div>
+        </div>
       </div>
       
-      <div class='units-row'>
-      
-        <div class='unit-25'>
-          <form class='forms'>
+      <div class='unit-30'>
+        <form class='forms'>
+          <fieldset>
+          <legend>Data</legend>
             <p>
               <span class='small'>Method</span>
               <select
-                ng-model="parameters.method">
-                <option value="progress">Progress</option>
-                <option value="noise">Noise</option>
-              </select>
-            </p>
-          </form>
-        </div>
-       
-       
-        <div class='unit-25'>
-          <form class='forms'>
-            <p>
-              <span class='small'>Accuracy</span>
-              <input type="range" ng-model="parameters.sideSize" min="2" max="50" step="1">
-              <span class='label label-data'>{{parameters.sideSize}}</span>
-            </p>
-          </form>
-        </div>
+              ng-model="parameters.method">
+              <option value="progress">Progress</option>
+              <option value="noise">Noise</option>
+            </select>
+          </p>
+          <p>
+            <span class='small'>Accuracy</span>
+            <input type="range" ng-model="parameters.sideSize" min="2" max="50" step="1">
+            <span class='label label-data'>{{parameters.sideSize}}</span>
+          </p>
+          <p>
+            <span class='small'>Frequency</span>
+            <input type="range" ng-model="parameters.frequency" min="0.1" max="10" step="0.05">
+            <span class='label label-data'>{{parameters.frequency}}</span>
+          </p>
+          <p>
+            <span class='small'>Speed</span>
+            <input type="range" ng-model="parameters.speed" min="1" max="100" step="1">
+            <span class='label label-data'>{{parameters.speed}}</span>
+          </p>
+        </fieldset>
         
-        <div class='unit-25'>
-          <form class='forms'>
-            <p>
-              <span class='small'>Frequency</span>
-              <input type="range" ng-model="parameters.frequency" min="0.1" max="10" step="0.05">
-              <span class='label label-data'>{{parameters.frequency}}</span>
-            </p>
-          </form>
-        </div>
-        <div class='unit-25'>
-          <form class='forms'>
-            <p>
-              <span class='small'>Speed</span>
-              <input type="range" ng-model="parameters.speed" min="0.0001" max="0.1" step="0.0005">
-              <span class='label label-data'>{{parameters.speed}}</span>
-            </p>
-          </form>
-        </div>
-      </div>
-      
-      
-      <cammy-canvas data='data' angles='angles'></cammy-canvas>
-      <div class='unit-100'>
-        <span class='label label-blue'>&theta; {{angles.theta}}&deg;</span>
-        <span class='label label-blue'>&phi; {{angles.phi}}&deg;</span>
-      </div>
+        <fieldset>
+          <legend>Display</legend>
+          <p>
+            <span class='small'>Lines</span>
+            <input type="checkbox" ng-model="seriesOptions.drawLines"></input>
+            <input ng-disabled="!seriesOptions.drawLines" type="range" ng-model="seriesOptions.lineWidth" min="0" max="10" step="0.5"></input>
+            <span class='label label-data'>{{seriesOptions.lineWidth}}</span>
+          </p>
+          
+          <p>
+            <span class='small'>Points</span>
+            <input type="checkbox" ng-model="seriesOptions.drawDots"></input>
+            <input ng-disabled="!seriesOptions.drawDots" type="range" ng-model="seriesOptions.dotWidth" min="0" max="10" step="0.5"></input>
+            <span class='label label-data'>{{seriesOptions.dotWidth}}</span>
+          </p>
+          
+        </fieldset>
+        
+        <fieldset>
+          <legend>Misc.</legend>
+          <p>
+            <span class='small'>Axes</span>
+            <input type="checkbox" ng-model="chartOptions.drawAxes"></input>
+          </p>
+          
+        </fieldset>
+
+      </form>
     </div>
   </div>
+  
+</div>
 </body>
 <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-unstable/angular.min.js"></script>
