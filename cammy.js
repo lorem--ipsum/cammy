@@ -323,6 +323,30 @@ angular.module('cammy', ['nomnom'])
          .append('canvas')
          .attr('width', width).attr('height', height).attr('class', 'chart')
         
+        var rect = iElm[0].getBoundingClientRect();
+        var width = rect.width | 0;
+        var height = rect.height | 0;
+
+        var context = g[0][0].getContext('2d');var devicePixelRatio = window.devicePixelRatio || 1;
+        var backingStoreRatio = context.webkitBackingStorePixelRatio ||
+          context.mozBackingStorePixelRatio ||
+          context.msBackingStorePixelRatio ||
+          context.oBackingStorePixelRatio ||
+          context.backingStorePixelRatio || 1;
+
+        var ratio = devicePixelRatio / backingStoreRatio;
+        if (ratio != 1) {
+          g.attr({
+            width: width * ratio,
+            height: height * ratio
+          }).style({
+            width: width + 'px',
+            height:height + 'px'
+          });
+          
+          context.scale(ratio, ratio);
+        }
+        
         update(series);
       };
       
